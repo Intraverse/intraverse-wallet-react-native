@@ -1,4 +1,4 @@
-package com.golden;
+package com.intraversetech.gwallet;
 
 import android.content.Intent;
 import android.net.Uri;

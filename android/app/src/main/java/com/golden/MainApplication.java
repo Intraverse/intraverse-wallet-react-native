@@ -1,4 +1,4 @@
-package com.golden;
+package com.intraversetech.gwallet;
 
 import android.app.Application;
 import com.skyward.NotificationManager.NotificationManager;

@@ -104,14 +104,13 @@ android {
         }
     }
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "io.goldenwallet"
+        applicationId "com.intraversetech.gwallet"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 17
-        versionName "1.2"
+        versionCode 1
+        versionName "0.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
