@@ -140,13 +140,14 @@ export default class HomeScreen extends Component {
   }
 
   get shouldShowUpdatePopup() {
-    if (__DEV__) return false
-    const { lastestVersionRead, shouldShowUpdatePopup } = MainStore.appState
-    const version = DeviceInfo.getVersion()
-    if (version < this.lastestVersion) {
-      return lastestVersionRead < this.lastestVersion || shouldShowUpdatePopup
-    }
     return false
+    // if (__DEV__) return false
+    // const { lastestVersionRead, shouldShowUpdatePopup } = MainStore.appState
+    // const version = DeviceInfo.getVersion()
+    // if (version < this.lastestVersion) {
+    //   return lastestVersionRead < this.lastestVersion || shouldShowUpdatePopup
+    // }
+    // return false
   }
 
   openShare = (filePath) => {
