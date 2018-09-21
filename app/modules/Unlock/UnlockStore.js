@@ -68,7 +68,7 @@ class UnlockStore {
   }
 
   @action setup() {
-    const unlockDes = MainStore.appState.hasPassword ? 'Unlock your Golden' : 'Create your Pincode'
+    const unlockDes = MainStore.appState.hasPassword ? 'Unlock your Sync' : 'Create your Pincode'
     this.setData({
       unlockDes,
       pincode: '',
@@ -77,7 +77,7 @@ class UnlockStore {
     AsyncStorage.getItem('USER_WALLET_ENCRYPTED').then((oldData) => {
       if (oldData) {
         this.setData({
-          unlockDes: 'Unlock your Golden'
+          unlockDes: 'Unlock your Sync'
         })
       }
     })
@@ -200,7 +200,7 @@ class UnlockStore {
     return new Promise(async (resolve) => {
       const { pincode } = this.data
       const secureDS = await SecureDS.getInstance(pincode)
-      if (!secureDS) {
+      if (!__DEV__ && !secureDS) {
         this._handleErrorPin()
       } else {
         HapticHandler.NotificationSuccess()
