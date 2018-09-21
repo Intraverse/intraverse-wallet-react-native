@@ -12,16 +12,16 @@ const PLAY_STORE_LINK = 'market://details?id=io.goldenwallet'
 
 export default class SettingStore {
   @observable dataCommunity = [
-    {
-      mainText: 'Telegram Group',
-      onPress: () => { Linking.openURL('https://t.me/goldenwallet') },
-      iconRight: false
-    },
-    {
-      mainText: 'Follow Twitter',
-      onPress: () => { Linking.openURL('https://twitter.com/goldenwallet_io') },
-      iconRight: false
-    }
+    // {
+    //   mainText: 'Telegram Group',
+    //   onPress: () => { Linking.openURL('https://t.me/goldenwallet') },
+    //   iconRight: false
+    // },
+    // {
+    //   mainText: 'Follow Twitter',
+    //   onPress: () => { Linking.openURL('https://twitter.com/goldenwallet_io') },
+    //   iconRight: false
+    // }
     // {
     //   mainText: 'Medium',
     //   onPress: () => { },
@@ -47,14 +47,14 @@ export default class SettingStore {
     //   onPress: () => { NavStore.pushToScreen('DAppWebScreen') },
     //   iconRight: false
     // },
-    {
-      mainText: `Rate Golden on ${store}`,
-      onPress: () => { this.showPopupRating() },
-      iconRight: false
-    },
+    // {
+    //   mainText: `Rate Sync Wallet on ${store}`,
+    //   onPress: () => { this.showPopupRating() },
+    //   iconRight: false
+    // },
     {
       mainText: 'Source Code',
-      onPress: () => { Linking.openURL('https://github.com/goldennetwork/golden-wallet-react-native') },
+      onPress: () => { Linking.openURL('https://github.com/Intraverse/intraverse-wallet-react-native') },
       subText: 'Github'
     },
     {

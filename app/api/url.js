@@ -19,8 +19,8 @@ export default {
   },
   Skylab: {
     apiURL: () => `http://wallet.skylab.vn`,
-    privacyURL: () => `https://goldenwallet.io/privacy`,
-    termsURL: () => `https://goldenwallet.io/terms`
+    privacyURL: () => `https://synchroniciti.com/privacy/`,
+    termsURL: () => `https://synchroniciti.com/terms/`
   },
   OpenSea: {
     apiURL: () => `https://opensea-api.herokuapp.com`
