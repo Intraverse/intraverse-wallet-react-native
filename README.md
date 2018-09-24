@@ -33,15 +33,21 @@ Run Synchronciti Wallet on iOS
 	
 	react-native run-ios
 
+To choose specific device
+
+	react-native run-ios --simulator="iPhone XR"
+
 #### Android
 Run Synchroniciti Wallet on Android
 
 	react-native run-android
 
 ### Release
+#### IOS
+
+react-native run-ios --configuration Release
+
 #### Android
-
-
 
 Build release APK according to the [react-native documentation](https://facebook.github.io/react-native/docs/signed-apk-android):
 

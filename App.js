@@ -22,6 +22,7 @@ import MainStore from './app/AppStores/MainStore'
 import NotificationStore from './app/AppStores/stores/Notification'
 import PushNotificationHelper from './app/commons/PushNotificationHelper'
 import AppStyle from './app/commons/AppStyle'
+import './ReactotronConfig'
 
 console.ignoredYellowBox = ['Warning: isMounted']
 
