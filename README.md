@@ -38,3 +38,16 @@ Run Synchroniciti Wallet on Android
 
 	react-native run-android
 
+### Release
+#### Android
+
+
+
+Build release APK according to the [react-native documentation](https://facebook.github.io/react-native/docs/signed-apk-android):
+
+	Create a signing key
+	Create ~/.gradle/gradle.properties
+		ANDROID_STORE_PASSWORD=[password]
+		ANDROID_KEY_PASSWORD=[password]
+	cd android
+	./gradlew assembleRelease

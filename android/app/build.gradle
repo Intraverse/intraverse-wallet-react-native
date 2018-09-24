@@ -97,10 +97,10 @@ def enableProguardInReleaseBuilds = false
 android {
     signingConfigs {
         config {
-            keyAlias 'gold'
-            keyPassword '12345678'
-            storeFile file('keystores')
-            storePassword '12345678'
+            keyAlias 'synchroniciti-wallet'
+            keyPassword ANDROID_KEY_PASSWORD
+            storeFile file('synchroniciti-wallet-release-key.keystore')
+            storePassword ANDROID_STORE_PASSWORD
         }
     }
     compileSdkVersion 27
