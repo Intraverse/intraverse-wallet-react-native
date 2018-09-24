@@ -57,3 +57,12 @@ Build release APK according to the [react-native documentation](https://facebook
 		ANDROID_KEY_PASSWORD=[password]
 	cd android
 	./gradlew assembleRelease
+
+## Debugging
+
+### Network
+
+Reactotron is linked for development builds:
+
+https://github.com/infinitered/reactotron/blob/master/docs/installing.md
+
