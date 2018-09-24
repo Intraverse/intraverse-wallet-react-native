@@ -72,7 +72,6 @@ export default class ImportWalletScreen extends Component {
               subtitle={contentPrivateKey}
               imageCard={images.iconPrivateKey}
               onPress={this.gotoImportPrivateKey}
-              imageBackground="backgroundCard"
               imageBackgroundStyle={{ height: 174 }}
               titleTextStyle={{ color: AppStyle.mainColor }}
               subtitleTextStyle={{

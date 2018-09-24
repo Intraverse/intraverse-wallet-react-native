@@ -110,7 +110,7 @@ export default class BottomButton extends Component {
         bottom: this.state.bottom,
         marginTop: 10,
         borderRadius: this.state.borderRadius,
-        backgroundColor: '#121734',
+        backgroundColor: AppStyle.mainColor,
         left: this.state.marginVertical,
         right: this.state.marginVertical
       }}
@@ -120,7 +120,7 @@ export default class BottomButton extends Component {
           onPress={this.onPress}
           style={styles.saveButton}
         >
-          <Text style={{ fontSize: 16, color: disable ? AppStyle.secondaryTextColor : AppStyle.mainColor, fontFamily: 'OpenSans-Semibold' }}>
+          <Text style={{ fontSize: 16, color: disable ? AppStyle.backgroundColor : AppStyle.backgroundTextInput, fontFamily: 'OpenSans-Semibold' }}>
             {text}
           </Text>
         </TouchableOpacity>

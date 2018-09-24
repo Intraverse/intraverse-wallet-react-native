@@ -363,7 +363,7 @@ export default class HomeScreen extends Component {
               <TouchableOpacity
                 style={{
                   height: 40,
-                  backgroundColor: '#121734',
+                  backgroundColor: AppStyle.mode1,
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginRight: 20,

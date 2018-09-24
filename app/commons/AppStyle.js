@@ -1,10 +1,10 @@
 export default {
-  mainColor: '#E4BF43',
+  mainColor: '#000000',  // highlight and tint color
   grayColor: '#C5C1C1',
   greenColor: '#2ED573',
   colorBlack: '#0F140D',
   placeholderColor: '#6A6A77',
-  backgroundColor: '#0A0F24',
+  backgroundColor: '#FFFFFF', // main background color
   secondaryColor: '#4B53FF',
   colorRed: '#FF1B43',
   backgroundCard: '#0F142E',
@@ -30,16 +30,17 @@ export default {
   colorImageOvalBottom: '#eaf4fb',
   colorPinCode: '#131D42',
   warmGreyColor: '#9b9b9b',
-  mode1: '#13192B',
+  mode1: '#F6F5F5', // background of card
   mode2: '#22273A',
   mode3: '#2E3244',
   modeAdd: '#161B2F',
-  mainTextColor: '#E5E5E5',
-  secondaryTextColor: '#8A8D97',
+  mainTextColor: '#000000', // color for text
+  secondaryTextColor: '#8A8D97', // font color input boxes
   colorDown: '#E50370',
   colorUp: '#7ED321',
   colorLines: '#1D2137',
-  backgroundTextInput: '#141A2E',
+  backgroundTextInput: '#F6F5F5', // background input boxes
+  secondaryButtonBackgroundColor: '#E5E5E5', // background secondary buttons
 
   backgroundDarkMode: '#0A0F24',
   backgroundContentDarkMode: '#14192D',

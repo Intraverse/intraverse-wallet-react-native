@@ -432,10 +432,10 @@ const styles = StyleSheet.create({
   copyButton: {
     fontFamily: 'OpenSans-Bold',
     fontSize: isSmallScreen ? 10 : 14,
-    color: AppStyle.backgroundColor
+    color: AppStyle.mainColor
   },
   backgroundCopy: {
-    backgroundColor: '#E5E5E5',
+    backgroundColor: AppStyle.secondaryButtonBackgroundColor,
     paddingHorizontal: isSmallScreen ? 15 : 26,
     paddingVertical: isSmallScreen ? 4 : 7,
     borderRadius: 16

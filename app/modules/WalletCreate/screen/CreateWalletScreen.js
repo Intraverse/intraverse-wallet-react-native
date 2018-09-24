@@ -48,8 +48,9 @@ export default class CreateWalletScreen extends Component {
             subtitle="a new wallet"
             imageCard={images.imgCardCreate}
             onPress={this.gotoEnterName}
-            imageBackground="backgroundCard"
-            titleTextStyle={{ color: AppStyle.mainColor }}
+            imgBackground="backgroundCard"
+            imgBackgroundStyle={{ height: 214, borderRadius: 14, width: width - 40 }}
+            titleTextStyle={{ color: AppStyle.mainTextColor }}
             subtitleTextStyle={{ color: AppStyle.secondaryTextColor, marginTop: 4, fontSize: 16 }}
           />
 

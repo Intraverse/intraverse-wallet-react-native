@@ -146,7 +146,7 @@ export default class ImportViaMnemonicScreen extends Component {
                   buttonItem={{
                     name: constant.SCAN_QR_CODE,
                     icon: images.iconQrCode,
-                    background: '#121734'
+                    background: AppStyle.backgroundColor
                   }}
                   styleText={{ color: AppStyle.mainTextColor }}
                   styleIcon={{ tintColor: AppStyle.mainTextColor }}
@@ -176,9 +176,9 @@ const styles = StyleSheet.create({
   textInput: {
     height: 182,
     width: width - 40,
-    backgroundColor: '#14192D',
+    backgroundColor: AppStyle.backgroundTextInput,
     borderRadius: 14,
-    color: '#7F8286',
+    color: AppStyle.mainColor,
     fontFamily: Platform.OS === 'ios' ? 'OpenSans' : 'OpenSans-Regular',
     fontSize: 18,
     paddingHorizontal: 27,
