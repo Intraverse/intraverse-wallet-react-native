@@ -61,7 +61,7 @@ export default class ExportPrivateKeyScreen extends Component {
             style={styles.copybt}
             onPress={() => {
               Clipboard.setString(pk)
-              NavStore.showToastTop('Private Key Copied!', {}, { color: AppStyle.mainColor })
+              NavStore.showToastTop('Private Key Copied!', {}, { color: AppStyle.toastFontColor })
             }}
           >
             <Text style={styles.copy}>Copy</Text>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   des: {
     fontSize: 16,
     fontFamily: AppStyle.mainFontSemiBold,
-    color: '#E5E5E5',
+    color: AppStyle.mainColor,
     marginTop: 30,
     marginLeft: 20,
     marginRight: 20,

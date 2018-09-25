@@ -8,6 +8,7 @@ import {
 // import PropTypes from 'prop-types'
 import HapticHandler from '../../Handler/HapticHandler'
 import LayoutUtils from '../../commons/LayoutUtils'
+import AppStyle from '../../commons/AppStyle'
 
 const { width } = Dimensions.get('window')
 const { heightNotif } = LayoutUtils
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
   container: {
     width,
     height: heightNotif,
-    backgroundColor: '#212637',
+    backgroundColor: AppStyle.toastBackgroundColor,
     alignItems: 'center',
     justifyContent: 'flex-end',
     position: 'absolute'
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   copyText: {
     fontSize: 16,
     fontFamily: 'OpenSans-Bold',
-    color: '#4A90E2',
+    color: AppStyle.toastTextColor,
     marginBottom: 10
   }
 })

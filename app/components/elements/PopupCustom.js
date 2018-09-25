@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   popupCustom: {
     width: 270,
     borderRadius: 14,
-    backgroundColor: '#0A0F24'
+    backgroundColor: '#FFFFFF'
   },
   overlayPopup: {
     flex: 1,

@@ -42,7 +42,7 @@ export default {
   backgroundTextInput: '#F6F5F5', // background input boxes
   secondaryButtonBackgroundColor: '#E5E5E5', // background secondary buttons
 
-  backgroundDarkMode: '#0A0F24',
+  backgroundDarkMode: '#FFFFFF', // background of detail items
   backgroundContentDarkMode: '#F5F5F5', // background of sub cards
   titleDarkModeColor: '#E5E5E5',
   subtitleDarkModeColor: '#8A8D97',
@@ -51,6 +51,9 @@ export default {
   mainFontBold: 'OpenSans-Bold',
   mainFont: 'OpenSans-Regular',
   mainFontSemiBold: 'OpenSans-Semibold',
+
+  toastTextColor: '#FFFFFF',
+  toastBackgroundColor: '#000000',
 
   swipeButtonBackground: '#1F2437',
   borderLinesSetting: '#FFFFFF', // border color between rows
