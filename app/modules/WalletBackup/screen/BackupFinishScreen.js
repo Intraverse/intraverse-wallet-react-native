@@ -94,6 +94,6 @@ const styles = StyleSheet.create({
   textGotIt: {
     fontFamily: 'OpenSans-Semibold',
     fontSize: 18,
-    color: AppStyle.mainColor
+    color: AppStyle.backgroundColor
   }
 })

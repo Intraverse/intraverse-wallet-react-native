@@ -74,7 +74,7 @@ export default class BackupSecondStepScreen extends Component {
           marginHorizontal: 10,
           marginTop: 20,
           backgroundDisable: AppStyle.colorLines,
-          itemTextColorDisable: AppStyle.mainTextColor,
+          itemTextColorDisable: AppStyle.backgroundColor,
           fontFamily: opensansRegular,
           fontWeight: 'normal',
           itemFontSize: 14,

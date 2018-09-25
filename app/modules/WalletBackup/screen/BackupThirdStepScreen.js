@@ -82,7 +82,7 @@ export default class BackupThirdStepScreen extends Component {
           marginHorizontal: 10,
           backgroundColor: AppStyle.backgroundContentDarkMode,
           itemBackgroundColor: '#1E2336',
-          itemTextColor: AppStyle.mainTextColor,
+          itemTextColor: AppStyle.backgroundColor,
           fontFamily: opensansRegular,
           fontWeight: 'normal',
           itemFontSize: isSmallScreen ? 12 : 14,
