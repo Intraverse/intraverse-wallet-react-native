@@ -117,7 +117,7 @@ export default class ImportViaAddressScreen extends Component {
                 }}
                 action={this.goBack}
               />
-              <Text style={[styles.titleText, { marginTop: 15, color: isNameFocus ? AppStyle.mainColor : 'white' }]}>Name</Text>
+              <Text style={[styles.titleText, { marginTop: 15, color: isNameFocus ? AppStyle.mainColor : AppStyle.secondaryTextColor }]}>Name</Text>
               <InputWithAction
                 ref={(ref) => { this.nameField = ref }}
                 style={{ width: width - 40, marginTop: 10 }}
@@ -129,7 +129,7 @@ export default class ImportViaAddressScreen extends Component {
               {isErrorTitle &&
                 <Text style={styles.errorText}>{constant.EXISTED_NAME}</Text>
               }
-              <Text style={[styles.titleText, { marginTop: 20, color: isAddressFocus ? AppStyle.mainColor : 'white' }]}>Address</Text>
+              <Text style={[styles.titleText, { marginTop: 20, color: isAddressFocus ? AppStyle.mainColor : AppStyle.secondaryTextColor }]}>Address</Text>
               <InputWithAction
                 ref={(ref) => { this.addressField = ref }}
                 style={{ width: width - 40, marginTop: 10 }}
@@ -150,8 +150,8 @@ export default class ImportViaAddressScreen extends Component {
                   icon: images.iconQrCode,
                   background: '#121734'
                 }}
-                styleText={{ color: AppStyle.mainTextColor }}
-                styleIcon={{ tintColor: AppStyle.mainTextColor }}
+                styleText={{ color: AppStyle.backgroundColor }}
+                styleIcon={{ tintColor: AppStyle.backgroundColor }}
                 action={this.gotoScan}
               />
             </KeyboardView>

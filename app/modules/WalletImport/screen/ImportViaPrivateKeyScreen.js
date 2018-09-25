@@ -136,7 +136,7 @@ export default class ImportViaPrivateKeyScreen extends Component {
                 }}
                 action={this.onBack}
               />
-              <Text style={[styles.titleText, { marginTop: 15, color: isNameFocus ? AppStyle.mainColor : 'white' }]}>Name</Text>
+              <Text style={[styles.titleText, { marginTop: 15, color: isNameFocus ? AppStyle.mainColor : AppStyle.secondaryTextColor }]}>Name</Text>
               <InputWithAction
                 ref={(ref) => { this.nameField = ref }}
                 style={{ width: width - 40, marginTop: 10 }}
@@ -148,7 +148,7 @@ export default class ImportViaPrivateKeyScreen extends Component {
               {isErrorTitle &&
                 <Text style={styles.errorText}>{constant.EXISTED_NAME}</Text>
               }
-              <Text style={[styles.titleText, { marginTop: 20, color: isPrivateKeyFocus ? AppStyle.mainColor : 'white' }]}>Private Key</Text>
+              <Text style={[styles.titleText, { marginTop: 20, color: isPrivateKeyFocus ? AppStyle.mainColor : AppStyle.secondaryTextColor }]}>Private Key</Text>
               <InputWithAction
                 ref={(ref) => { this.privKeyField = ref }}
                 style={{ width: width - 40, marginTop: 10 }}
@@ -169,8 +169,8 @@ export default class ImportViaPrivateKeyScreen extends Component {
                   icon: images.iconQrCode,
                   background: '#121734'
                 }}
-                styleText={{ color: AppStyle.mainTextColor }}
-                styleIcon={{ tintColor: AppStyle.mainTextColor }}
+                styleText={{ color: AppStyle.backgroundColor }}
+                styleIcon={{ tintColor: AppStyle.backgroundColor }}
                 action={this.gotoScan}
               />
             </KeyboardView>
