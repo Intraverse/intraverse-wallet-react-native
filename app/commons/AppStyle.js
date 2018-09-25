@@ -30,7 +30,7 @@ export default {
   colorImageOvalBottom: '#eaf4fb',
   colorPinCode: '#131D42',
   warmGreyColor: '#9b9b9b',
-  mode1: '#F6F5F5', // background of card
+  mode1: '#FAFAFA', // background of card
   mode2: '#22273A',
   mode3: '#2E3244',
   modeAdd: '#161B2F',
@@ -43,7 +43,7 @@ export default {
   secondaryButtonBackgroundColor: '#E5E5E5', // background secondary buttons
 
   backgroundDarkMode: '#0A0F24',
-  backgroundContentDarkMode: '#14192D',
+  backgroundContentDarkMode: '#F5F5F5', // background of sub cards
   titleDarkModeColor: '#E5E5E5',
   subtitleDarkModeColor: '#8A8D97',
   backgroundDarkBlue: '#121734',
