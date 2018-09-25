@@ -14,7 +14,8 @@ import images from '../../../commons/images'
 /* eslint-disable-next-line */
 import GoldenLoading from '../../../components/elements/GoldenLoading'
 import MainStore from '../../../AppStores/MainStore'
-import NavStore from '../../../AppStores/NavStore';
+import NavStore from '../../../AppStores/NavStore'
+import AppStyle from '../../../commons/AppStyle'
 
 const { height } = Dimensions.get('window')
 const isSmallScreen = height < 569
@@ -56,11 +57,11 @@ export default class UnlockPincode extends Component {
       height: 13,
       borderRadius: 6.5,
       borderWidth: 1,
-      borderColor: 'white',
+      borderColor: AppStyle.mainColor,
       marginHorizontal: 12
     }
     for (let i = 0; i < numberOfDots; i++) {
-      const backgroundColor = i < pinTyped ? { backgroundColor: 'white' } : {}
+      const backgroundColor = i < pinTyped ? { backgroundColor: AppStyle.mainColor } : {}
       const dot = <View style={[styleDot, backgroundColor]} key={i} />
       dots.push(dot)
     }
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   desText: {
-    color: 'white',
+    color: AppStyle.mainColor,
     fontSize: isSmallScreen ? 14 : 22,
     fontFamily: 'OpenSans-Bold',
     marginTop: isSmallScreen ? 10 : height * 0.03
@@ -193,11 +194,11 @@ const styles = StyleSheet.create({
   numberText: {
     fontFamily: 'OpenSans-Semibold',
     fontSize: 36,
-    color: 'white'
+    color: AppStyle.mainColor
   },
   cancelText: {
     fontFamily: 'OpenSans-Semibold',
     fontSize: 20,
-    color: 'white'
+    color: AppStyle.mainColor
   }
 })
