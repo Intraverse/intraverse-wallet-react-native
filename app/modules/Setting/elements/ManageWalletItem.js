@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 14,
     fontFamily: 'OpenSans-Semibold',
-    color: '#3B7CEC'
+    color: AppStyle.mainColor
   },
   balance: {
     fontSize: 16,
     fontFamily: 'OpenSans-Semibold',
-    color: 'white',
+    color: AppStyle.mainColor,
     alignSelf: 'center'
   }
 })

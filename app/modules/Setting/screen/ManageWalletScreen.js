@@ -190,7 +190,7 @@ export default class ListWalletScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppStyle.backgroundDarkMode
+    backgroundColor: AppStyle.backgroundColor
   },
   addContactButtonStyle: {
     flexDirection: 'row',
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   textOfButtonStyle: {
-    color: '#E4BF43',
+    color: AppStyle.mainColor,
     fontFamily: AppStyle.mainFontSemiBold,
     fontSize: 18
   },

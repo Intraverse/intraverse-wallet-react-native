@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    color: 'white'
+    color: AppStyle.mainColor
     // fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'CourierNewBold',
     // fontWeight: 'bold'
   }

@@ -53,7 +53,7 @@ export default {
   mainFontSemiBold: 'OpenSans-Semibold',
 
   swipeButtonBackground: '#1F2437',
-  borderLinesSetting: '#1D2137',
+  borderLinesSetting: '#FFFFFF', // border color between rows
   errorColor: '#D0021B',
   blueActionColor: '#4A90E2'
 
