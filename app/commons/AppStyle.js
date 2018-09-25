@@ -52,8 +52,8 @@ export default {
   mainFont: 'OpenSans-Regular',
   mainFontSemiBold: 'OpenSans-Semibold',
 
-  toastTextColor: '#FFFFFF',
-  toastBackgroundColor: '#000000',
+  toastTextColor: '#FFFFFF',  // top messages text 
+  toastBackgroundColor: '#000000', // top messages background
 
   swipeButtonBackground: '#1F2437',
   borderLinesSetting: '#FFFFFF', // border color between rows

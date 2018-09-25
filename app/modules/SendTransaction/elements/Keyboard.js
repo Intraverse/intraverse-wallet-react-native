@@ -13,6 +13,7 @@ import HapticHandler from '../../../Handler/HapticHandler'
 import images from '../../../commons/images'
 import MainStore from '../../../AppStores/MainStore'
 import KeyBoardButton from './KeyboardButton'
+import AppStyle from '../../../commons/AppStyle'
 
 const { height } = Dimensions.get('window')
 const isSmallScreen = height < 650
@@ -116,7 +117,7 @@ export default class KeyBoard extends Component {
           style={styles.maxButton}
           onPress={this._onMaxPress}
         >
-          <Text style={{ fontSize: 16, color: '#4A90E2', fontFamily: 'OpenSans-Semibold' }}>Max</Text>
+          <Text style={{ fontSize: 16, color: AppStyle.backgroundColor, fontFamily: 'OpenSans-Semibold' }}>Max</Text>
         </TouchableOpacity>
         {this.renderNumber(dataNumber1)}
         {this.renderNumber(dataNumber2)}
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
   numberText: {
     // fontFamily: 'OpenSans-Semibold',
     fontSize: 30,
-    color: 'white'
+    color: AppStyle.mainColor
   },
   arrayNumber: {
     flexDirection: 'row',

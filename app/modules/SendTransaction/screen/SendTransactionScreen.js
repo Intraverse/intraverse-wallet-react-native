@@ -126,7 +126,7 @@ export default class SendTransactionScreen extends Component {
         disabled={!this.amountStore.checkButtonEnable}
         onPress={this._onSendPress}
       >
-        <Text style={[styles.sendText, { color: this.amountStore.checkButtonEnable ? AppStyle.mainColor : AppStyle.greyTextInput }]}>
+        <Text style={[styles.sendText, { color: this.amountStore.checkButtonEnable ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
           {constant.SEND_TO}
         </Text>
       </TouchableOpacity>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     paddingRight: 15
   },
   walletName: {
-    color: AppStyle.mainTextColor,
+    color: AppStyle.backgroundColor,
     fontFamily: 'OpenSans-Semibold',
     fontSize: 16,
     fontWeight: '600',
