@@ -77,7 +77,7 @@ export default class TransactionDetailScreen extends Component {
 
   _onPress = (message, title) => {
     Clipboard.setString(message)
-    NavStore.showToastTop(`${title} Copied`, {}, { color: AppStyle.mainColor })
+    NavStore.showToastTop(`${title} Copied`, {}, { color: AppStyle.backgroundColor })
   }
 
   _onClose = () => NavStore.goBack()
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     left: 20
   },
   check: {
-    color: AppStyle.mainColor,
+    color: AppStyle.backgroundColor,
     fontSize: 18,
     fontFamily: 'OpenSans-Semibold'
   },
