@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   headerBalance: {
     fontFamily: AppStyle.mainFontBold,
     fontSize: 18,
-    color: AppStyle.mainColor,
+    color: AppStyle.secondaryTextColor,
     marginLeft: 4
   },
   exit: {
