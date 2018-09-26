@@ -215,7 +215,7 @@ export default class HomeScreen extends Component {
         onAlertBackup={this.onAlertBackup}
         onCopy={() => {
           Clipboard.setString(MainStore.appState.selectedWallet.address)
-          NavStore.showToastTop('Address Copied!', {}, { color: AppStyle.mainColor })
+          NavStore.showToastTop('Address Copied!', {}, { color: AppStyle.toastTextColor })
         }}
         onShare={this.openShare}
       />
