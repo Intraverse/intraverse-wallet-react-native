@@ -24,5 +24,8 @@ export default {
   },
   OpenSea: {
     apiURL: () => `https://opensea-api.herokuapp.com`
+  },
+  EthExplorer: {
+    apiURL: (account) => `http://api.ethplorer.io/getAddressInfo/${account}/`
   }
 }

@@ -10,34 +10,37 @@ import URL from './url'
  */
 export const fetchWalletInfo = (address) => {
   if (!address) return Promise.reject()
-  if (appState.networkName !== NetworkConfig.networks.mainnet) {
-    const urlTest = URL.EtherScan.apiURL(appState.networkName)
-    const apikey = 'SVUJNQSR2APDFX89JJ1VKQU4TKMB6W756M'
-    const data = {
-      module: 'account',
-      action: 'balance',
-      address,
-      tag: 'latest',
-      apikey
-    }
-    return new Promise((resolve, reject) => {
-      caller.get(urlTest, data, true).then((res) => {
-        const balance = res && res.data && res.data.result ? new BigNumber(`${res.data.result}e-18`) : new BigNumber('0')
-        const result = {
-          data: {
-            data: {
-              ETH: { balance: balance.toString(10) },
-              address,
-              tokens: []
-            }
-          }
-        }
-        resolve(result)
-      }).catch(e => reject(e))
-    })
+  const urlTest = URL.EtherScan.apiURL(appState.networkName)
+  const apikey = 'SVUJNQSR2APDFX89JJ1VKQU4TKMB6W756M'
+  const data = {
+    module: 'account',
+    action: 'balance',
+    address,
+    tag: 'latest',
+    apikey
   }
-  const url = `${URL.Skylab.apiURL()}/balance/${address}`
-  return caller.get(url, {}, true)
+  const urlToken = URL.EthExplorer.apiURL(address)
+  const apiKeyToken = 'freekey'
+  const dataToken = {
+    apiKey: apiKeyToken
+  }
+  return new Promise.all([caller.get(urlTest, data, true), caller.get(urlToken, dataToken, true)]).then(res => {
+    if (res[0].status != 200 || res[1].status !== 200) {
+      throw ('at least one data source failed to return OK response')
+    }
+    const balance = res[0] && res[0].data && res[0].data.result ? new BigNumber(`${res[0].data.result}e-18`) : new BigNumber('0')
+    const tokens = res[1] && res[1].data && res[1].data.tokens ? res[1].data.tokens : []
+    const result = {
+      data: {
+        data: {
+          ETH: { balance: balance.toString(10) },
+          address,
+          tokens: tokens
+        }
+      }
+    }
+    return result
+  }).catch(e => reject(e))
 }
 
 /**
