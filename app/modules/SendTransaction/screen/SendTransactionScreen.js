@@ -171,14 +171,14 @@ const styles = StyleSheet.create({
   headerTitle: {
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#0E1428',
+    backgroundColor: AppStyle.buttonBackground,
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 15,
     paddingRight: 15
   },
   walletName: {
-    color: AppStyle.backgroundColor,
+    color: AppStyle.buttonText,
     fontFamily: 'OpenSans-Semibold',
     fontSize: 16,
     fontWeight: '600',

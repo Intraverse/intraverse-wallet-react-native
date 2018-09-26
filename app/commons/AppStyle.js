@@ -42,6 +42,9 @@ export default {
   backgroundTextInput: '#F6F5F5', // background input boxes
   secondaryButtonBackgroundColor: '#E5E5E5', // background secondary buttons
 
+  buttonText: '#FFFFFF', // text on buttons
+  buttonBackground: '#0E1428', // background of buttons
+
   backgroundDarkMode: '#FFFFFF', // background of detail items
   backgroundContentDarkMode: '#F5F5F5', // background of sub cards
   titleDarkModeColor: '#E5E5E5',

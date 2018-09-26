@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     paddingRight: 15
   },
   walletName: {
-    color: AppStyle.mainTextColor,
+    color: AppStyle.buttonText,
     fontFamily: 'OpenSans-Semibold',
     fontSize: 16,
     fontWeight: '600',
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
   headerBalance: {
     fontFamily: AppStyle.mainFontBold,
     fontSize: 18,
-    color: AppStyle.mainColor,
+    color: AppStyle.secondaryTextColor,
     marginLeft: 4
   },
   exit: {
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
   textInput: {
     height: 100,
     width: width - 40,
-    backgroundColor: '#14192D',
+    backgroundColor: AppStyle.backgroundTextInput,
     borderRadius: 5,
     color: AppStyle.secondaryTextColor,
     fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'CourierNewBold',
@@ -402,7 +402,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   buttonText: {
-    color: '#4A90E2',
+    color: AppStyle.buttonText,
     fontSize: 14,
     fontFamily: 'OpenSans-Semibold'
   },
