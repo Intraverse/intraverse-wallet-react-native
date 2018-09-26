@@ -316,7 +316,7 @@ export default class ConfirmScreen extends Component {
         >
           <View style={styles.labelHolder}>
             <Text
-              style={[styles.key, { color: isFocusGasLimit ? AppStyle.mainColor : 'white' }]}
+              style={[styles.key, { color: isFocusGasLimit ? AppStyle.mainColor : AppStyle.secondaryTextColor }]}
             >
               Gas Limit
             </Text>
@@ -688,7 +688,7 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   amount: {
-    color: '#E4BF43',
+    color: AppStyle.mainColor,
     fontSize: 30,
     fontFamily: 'OpenSans-Bold'
   },
@@ -709,7 +709,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   sendText: {
-    color: AppStyle.mainColor,
+    color: AppStyle.buttonText,
     fontFamily: 'OpenSans-Semibold',
     fontSize: 18
   },
@@ -736,7 +736,7 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   standardText: {
-    color: '#4A90E2',
+    color: AppStyle.buttonText,
     fontFamily: 'OpenSans-Semibold',
     fontSize: 14
   },
