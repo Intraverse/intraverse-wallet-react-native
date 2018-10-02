@@ -125,13 +125,39 @@ export const fetchTokenDetail = (address, contract) => {
 }
 
 export const changelogsLatest = () => {
-  const url = `${URL.Skylab.apiURL()}/changelogs/latest`
-  return caller.get(url, {}, true)
+  // const url = `${URL.Skylab.apiURL()}/changelogs/latest`
+  // return caller.get(url, {}, true)
+  return Promise.resolve({
+    "data": {
+      "data": [
+        {
+          "version_number": "0.2",
+          "is_release": true,
+          "change_logs": "Branding update",
+          "created_at": "2018-10-01T13:48:43.878Z"
+        }
+      ],
+      "success": true
+    }
+  })
 }
 
 export const changelogsList = () => {
-  const url = `${URL.Skylab.apiURL()}/changelogs`
-  return caller.get(url, {}, true)
+  // const url = `${URL.Skylab.apiURL()}/changelogs`
+  // return caller.get(url, {}, true)
+  return Promise.resolve({
+    "data": {
+      "data": [
+        {
+          "version_number": "0.2",
+          "is_release": true,
+          "change_logs": "Branding update",
+          "created_at": "2018-10-01T13:48:43.878Z"
+        }
+      ],
+      "success": true
+    }
+  })
 }
 
 export const fetchCollectibles = (address) => {
