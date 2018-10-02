@@ -230,7 +230,8 @@ export default class LargeCard extends Component {
               styles.imgCard,
               { marginTop: cardHeight * 0.07 }
             ]}
-            source={images.imgCardETH}
+            source={Helper.getCardImage(wallet.tokens)}
+            resizeMode="contain"
           />
           <Text style={[styles.balance]}>{balanceSecret}</Text>
           <Text style={[styles.balanceUSD, { marginBottom: 6 }]}>{balanceUSDSecret}</Text>
@@ -374,7 +375,7 @@ const styles = StyleSheet.create({
   },
   imgCard: {
     height: cardHeight * 0.31,
-    width: cardHeight * 0.31 * 0.63
+    width: cardHeight * 0.41
   },
   balance: {
     fontSize: isSmallScreen ? 20 : 30,

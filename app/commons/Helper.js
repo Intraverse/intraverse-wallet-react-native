@@ -1,6 +1,7 @@
 import numeral from 'numeral'
 import moment from 'moment'
 import mainStore from '../AppStores/MainStore'
+import images from './images'
 
 const trillion = 1000000000000
 const billion = 1000000000
@@ -44,6 +45,16 @@ export default class Helper {
       return coinsConfig[symbol].logo
     }
     return `https://s3-us-west-1.amazonaws.com/golden-wallets/coins/logo/${symbol}.png`
+  }
+
+  static getCardImage(tokens) {
+    const coinsConfig = mainStore.appState.coinsConfig
+    for (var token of tokens) {
+      if (token.symbol && token.symbol in coinsConfig && "icon" in coinsConfig[token.symbol]) {
+        return { uri: coinsConfig[token.symbol].icon, cache: 'force-cache' }
+      }
+    }
+    return images.imgCardETH
   }
 
   static formatTransactionDate(timeStamp) {
