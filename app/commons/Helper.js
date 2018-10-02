@@ -40,18 +40,18 @@ export default class Helper {
   }
 
   static getIconCoin(symbol) {
-    const coinsConfig = mainStore.appState.coinsConfig
-    if (symbol in coinsConfig && "logo" in coinsConfig[symbol]) {
-      return coinsConfig[symbol].logo
+    const coins = mainStore.appState.coins
+    if (symbol in coins && "logo" in coins[symbol]) {
+      return coins[symbol].logo
     }
     return `https://s3-us-west-1.amazonaws.com/golden-wallets/coins/logo/${symbol}.png`
   }
 
   static getCardImage(tokens) {
-    const coinsConfig = mainStore.appState.coinsConfig
+    const coins = mainStore.appState.coins
     for (var token of tokens) {
-      if (token.symbol && token.symbol in coinsConfig && "icon" in coinsConfig[token.symbol]) {
-        return { uri: coinsConfig[token.symbol].icon, cache: 'force-cache' }
+      if (token.symbol && token.symbol in coins && "icon" in coins[token.symbol]) {
+        return { uri: coins[token.symbol].icon, cache: 'force-cache' }
       }
     }
     return images.imgCardETH

@@ -45,7 +45,7 @@ class AppState {
   }
   // @observable enableNotification = true
   @observable currentCardIndex = 0
-  @observable coinsConfig = {}
+  @observable coins = {}
   lastestVersionRead = ''
   shouldShowUpdatePopup = true
 
@@ -64,7 +64,7 @@ class AppState {
     Reactions.auto.listenConnection(this)
     this.getRateETHDollar()
     this.getGasPriceEstimate()
-    this.getCoinsConfig()
+    this.getCoins()
   }
 
   startAllBgJobs() {
@@ -142,12 +142,12 @@ class AppState {
     }, 100)
   }
 
-  @action async getCoinsConfig() {
+  @action async getCoins() {
     setTimeout(async () => {
       if (this.internetConnection === 'online') {
         const cn = await api.fetchCoins()
         const conf = cn.data && cn.data.coins
-        this.coinsConfig = conf
+        this.coins = conf
       }
     }, 100)
   }
