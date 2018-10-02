@@ -105,18 +105,18 @@ export default class ManageWalletDetailScreen extends Component {
 
   _renderOptionItem = ({ item, index }) => {
     const enableNotif = this.currentStateEnableNotification
-    if (index == this.manageWalletStore.options.length - 1) {
-      return (
-        <SettingItem
-          mainText={item.mainText}
-          disable
-          type="switch"
-          enableSwitch={enableNotif}
-          onSwitch={() => this.onNotificationSwitch(!enableNotif, this.wallet)}
-        />
-      )
-    }
-    if (index == 1 && !this.shouldShowExportPrivateKey) {
+    // if (index == this.manageWalletStore.options.length - 1) {
+    //   return (
+    //     <SettingItem
+    //       mainText={item.mainText}
+    //       disable
+    //       type="switch"
+    //       enableSwitch={enableNotif}
+    //       onSwitch={() => this.onNotificationSwitch(!enableNotif, this.wallet)}
+    //     />
+    //   )
+    // }
+    if (index == 0 && !this.shouldShowExportPrivateKey) {
       return (
         <SettingItem
           style={{ borderTopWidth: index === 0 ? 0 : 1 }}
