@@ -25,7 +25,7 @@ export const addWallet = (name, address, deviceToken) => {
 
 export const removeWallet = (id) => {
   // return ApiCaller.delete(`${URL.Skylab.apiURL()}/wallets/${id}`, {}, false)
-  Promise.resolve({
+  return Promise.resolve({
     "data": {
       "address": "none",
       "ETH": {
@@ -76,10 +76,12 @@ export const initNotification = (wallets = [], deviceToken) => {
 
 export const offNotification = (deviceToken) => {
   const device_udid = DeviceInfo.getUniqueID() !== '' ? DeviceInfo.getUniqueID() : deviceToken.substring(0, 10)
-  return ApiCaller.put(`${URL.Skylab.apiURL()}/wallets/${device_udid}/disable`)
+  // return ApiCaller.put(`${URL.Skylab.apiURL()}/wallets/${device_udid}/disable`)
+  return Promise.resolve({})
 }
 
 export const onNotification = (deviceToken) => {
   const device_udid = DeviceInfo.getUniqueID() !== '' ? DeviceInfo.getUniqueID() : deviceToken.substring(0, 10)
-  return ApiCaller.put(`${URL.Skylab.apiURL()}/wallets/${device_udid}/enable`)
+  // return ApiCaller.put(`${URL.Skylab.apiURL()}/wallets/${device_udid}/enable`)
+  return Promise.resolve({})
 }
