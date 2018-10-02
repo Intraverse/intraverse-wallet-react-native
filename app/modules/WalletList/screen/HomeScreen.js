@@ -360,7 +360,7 @@ export default class HomeScreen extends Component {
                   width: width - 77
                 }}
               /> */}
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={{
                   height: 40,
                   backgroundColor: AppStyle.mode1,
@@ -374,7 +374,7 @@ export default class HomeScreen extends Component {
                 onPress={this._goToDapp}
               >
                 <Text style={{ color: AppStyle.mainColor, fontFamily: 'OpenSans-Semibold' }}>Đapp Browser</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </Animated.View>
           </View>
         </View>
