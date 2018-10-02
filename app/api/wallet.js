@@ -79,8 +79,9 @@ export const checkStatusTransaction = (txHash) => {
  */
 export const fetchToken = (address) => {
   if (!address) return Promise.reject()
-  const url = `${URL.Skylab.apiURL()}/balance/${address}`
-  return caller.get(url, {}, true)
+  // const url = `${URL.Skylab.apiURL()}/balance/${address}`
+  // return caller.get(url, {}, true)
+  return Promise.resolve({})
 }
 
 export const fetchRateETHDollar = () => {
@@ -120,8 +121,9 @@ export const checkTxHasBeenDroppedOrFailed = (txHash) => {
 }
 
 export const fetchTokenDetail = (address, contract) => {
-  const url = `${URL.Skylab.apiURL()}/balance/${address}/${contract}`
-  return caller.get(url, {}, true)
+  // const url = `${URL.Skylab.apiURL()}/balance/${address}/${contract}`
+  // return caller.get(url, {}, true)
+  return Promise.resolve({})
 }
 
 export const changelogsLatest = () => {
