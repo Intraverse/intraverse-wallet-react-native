@@ -208,7 +208,7 @@ export default class LargeCard extends Component {
                 </View>
               </TouchableOpacity>
             }
-            {importType &&
+            {/* {importType &&
               <TouchableWithoutFeedback
                 onPress={() => {
                   (importType === 'Address') && onAddPrivateKey()
@@ -220,7 +220,7 @@ export default class LargeCard extends Component {
                   </Text>
                 </View>
               </TouchableWithoutFeedback>
-            }
+            } */}
           </View>
           {/* {numberOfPendingTransaction > 0 &&
             <HomePendingTransaction numberOfPending={numberOfPendingTransaction} style={styles.homePending} />
