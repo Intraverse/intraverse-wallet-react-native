@@ -172,3 +172,8 @@ export const fetchCollectibles = (address) => {
   }
   return caller.get(url, data, true)
 }
+
+export const fetchCoins = () => {
+  const url = `${URL.Synchroniciti.coinsURL()}`
+  return caller.get(url, {}, true)
+}

@@ -1,9 +1,8 @@
 {
-	"coins": [
-		{
-			"symbol" : "MAP_T3",
+	"coins": {
+		"MAP_T3" : {
 			"logo" : "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/logo/MAP.png",
-			"icon" : "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/icon/MAP.png"
+			"icon" : "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/icon/MAP.png"			
 		}
-	]
+	}
 }

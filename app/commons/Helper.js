@@ -1,5 +1,6 @@
 import numeral from 'numeral'
 import moment from 'moment'
+import mainStore from '../AppStores/MainStore'
 
 const trillion = 1000000000000
 const billion = 1000000000
@@ -38,6 +39,10 @@ export default class Helper {
   }
 
   static getIconCoin(symbol) {
+    const coinsConfig = mainStore.appState.coinsConfig
+    if (symbol in coinsConfig && "logo" in coinsConfig[symbol]) {
+      return coinsConfig[symbol].logo
+    }
     return `https://s3-us-west-1.amazonaws.com/golden-wallets/coins/logo/${symbol}.png`
   }
 
