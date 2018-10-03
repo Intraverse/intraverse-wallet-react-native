@@ -146,8 +146,11 @@ class AppState {
     setTimeout(async () => {
       if (this.internetConnection === 'online') {
         const cn = await api.fetchCoins()
-        const conf = cn.data && cn.data.coins
-        this.coins = conf
+        const coins = cn.data && cn.data.coins
+        if (coins != this.coins) {
+          this.coins = coins
+          this.save()
+        }
       }
     }, 100)
   }
@@ -214,6 +217,8 @@ class AppState {
     this.rateETHDollar = new BigNumber(data.rateETHDollar || 0)
     this.gasPriceEstimate = data.gasPriceEstimate
     // this.BgJobs.CheckBalance.doOnce(false)
+
+    this.coins = data.coins || {}
   }
 
   @computed get isShowSendButton() {
@@ -274,7 +279,8 @@ class AppState {
       gasPriceEstimate: this.gasPriceEstimate,
       enableNotification: this.enableNotification,
       lastestVersionRead: this.lastestVersionRead,
-      shouldShowUpdatePopup: this.shouldShowUpdatePopup
+      shouldShowUpdatePopup: this.shouldShowUpdatePopup,
+      coins: this.coins
     }
   }
 }
