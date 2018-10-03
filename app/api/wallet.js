@@ -155,6 +155,12 @@ export const changelogsList = () => {
           "is_release": true,
           "change_logs": "Branding update",
           "created_at": "2018-10-01T13:48:43.878Z"
+        },
+        {
+          "version_number": "0.1",
+          "is_release": true,
+          "change_logs": "Initial release",
+          "created_at": "2018-09-25T13:48:43.878Z"
         }
       ],
       "success": true
