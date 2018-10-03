@@ -171,7 +171,6 @@ configurations.all {
 }
 
 dependencies {
-    compile project(':react-native-webview-bridge-updated')
     compile project(':react-native-share')
     compile project(':react-native-view-shot')
     compile project(':react-native-webview-bridge')
