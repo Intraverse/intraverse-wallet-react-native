@@ -51,10 +51,14 @@ react-native run-ios --configuration Release
 
 Build release APK according to the [react-native documentation](https://facebook.github.io/react-native/docs/signed-apk-android):
 
-	Create a signing key
-	Create ~/.gradle/gradle.properties
+Create a signing key:
+	
+	mkdir ~/.gradle/gradle.properties
 		ANDROID_STORE_PASSWORD=[password]
 		ANDROID_KEY_PASSWORD=[password]
+
+Create APK:
+
 	cd android
 	./gradlew assembleRelease
 
