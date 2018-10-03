@@ -92,7 +92,7 @@ class SendStore {
     NavStore.navigator.dispatch(NavigationActions.back())
     NavStore.navigator.dispatch(NavigationActions.back())
     NavStore.navigator.dispatch(NavigationActions.back())
-    NavStore.showToastTop('Your transaction has been pending', {}, { color: AppStyle.colorUp })
+    NavStore.showToastTop('Transaction sent and now pending', {}, { color: AppStyle.colorUp })
   }
 
   _onSendFail = (err) => {

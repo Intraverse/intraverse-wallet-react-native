@@ -4,6 +4,8 @@ import HapticHandler from '../../../Handler/HapticHandler'
 import Helper from '../../../commons/Helper'
 import MainStore from '../../../AppStores/MainStore'
 
+const TOKEN_DIGITS = 11
+
 class AmountStore {
   @observable amountText = {
     data: [],
@@ -136,7 +138,7 @@ class AmountStore {
     const newSubData = subData.map((item) => { return item.text != '' })
     return isUSD
       ? (isHadPoint ? data.length + newSubData.length > 9 : data.length > 9)
-      : (isHadPoint ? data.length + newSubData.length > 6 : data.length > 6)
+      : (isHadPoint ? data.length + newSubData.length > TOKEN_DIGITS : data.length > TOKEN_DIGITS)
   }
 
   @computed get checkValueValid() {
@@ -218,7 +220,7 @@ class AmountStore {
       isUSD,
       isHadPoint
     } = this.amountText
-    if (data.length == (isUSD ? 9 : 6) && item.text !== '.' && !isHadPoint) return
+    if (data.length == (isUSD ? 9 : TOKEN_DIGITS) && item.text !== '.' && !isHadPoint) return
     else if (data.length == 0 && item.text == '.') {
       const newData = [{ text: '0' }, item]
       const newSubData = isUSD ? [{ text: '0' }, { text: '' }] : [{ text: '0' }, { text: '' }, { text: '' }, { text: '' }]
@@ -248,6 +250,16 @@ class AmountStore {
       data.splice(3, 1)
       data.splice(1, 0, { text: ',' })
       data.splice(5, 0, { text: ',' })
+    } else if (data.length == 9 && item.text !== '.') {
+      data.splice(1, 1)
+      data.splice(4, 1)
+      data.splice(2, 0, { text: ',' })
+      data.splice(6, 0, { text: ',' })
+    } else if (data.length == 10 && item.text !== '.') {
+      data.splice(2, 1)
+      data.splice(5, 1)
+      data.splice(3, 0, { text: ',' })
+      data.splice(7, 0, { text: ',' })
     }
     this.setAmountText({ data: [...data, item], subData: zeroAfterPoint, isHadPoint: item.text === '.' ? true : isHadPoint })
   }
@@ -299,10 +311,10 @@ class AmountStore {
       data.splice(3, 1)
       data.splice(6, 1)
       data.splice(2, 0, { text: ',' })
-      data.splice(5, 0, { text: ',' })
-    } else if (data.lenth == 12) {
-      data.splice(1, 1)
-      data.splice(4, 1)
+      data.splice(6, 0, { text: ',' })
+    } else if (data.length == 11) {
+      data.splice(3, 1)
+      data.splice(6, 1)
       data.splice(7, 1)
       data.splice(3, 0, { text: ',' })
       data.splice(7, 0, { text: ',' })

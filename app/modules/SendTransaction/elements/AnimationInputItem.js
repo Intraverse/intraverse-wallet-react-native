@@ -89,7 +89,7 @@ export default class AnimationInputItem extends Component {
           }
         ]}
       >
-        <Text style={[styles.inputStyle, { color: sub ? AppStyle.greyTextInput : AppStyle.mainColor, fontSize: sizeSmall ? 40 : 60 }]}>{text}</Text>
+        <Text style={[styles.inputStyle, { color: sub ? AppStyle.greyTextInput : AppStyle.mainColor, fontSize: sizeSmall ? 30 : 40 }]}>{text}</Text>
       </Animated.View>
     )
   }

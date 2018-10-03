@@ -37,7 +37,7 @@ export default class AnimationInput extends Component {
     const style = {
       fontFamily: 'OpenSans-Semibold',
       color: data.length == 0 ? AppStyle.greyTextInput : AppStyle.mainTextColor,
-      fontSize: this.amountStore.checkSmallSize ? 40 : 60
+      fontSize: this.amountStore.checkSmallSize ? 30 : 40
     }
     const prefixTitle = isUSD
       ? <Text style={style}>$</Text>
@@ -46,7 +46,7 @@ export default class AnimationInput extends Component {
       ? <Text style={[{ marginLeft: 15 }, style]}>{this.props.postfix}</Text>
       : null
     const warningTitle = this.amountStore.checkWarningTitle
-      ? <Text style={styles.waringStyle}>Not enough balance for network fee</Text>
+      ? <Text style={styles.waringStyle}>Max exceeded (inc. network fee)</Text>
       : null
     const warningFee = this.amountStore.checkMaxBalanceWithFee
       ? <Text style={styles.waringFeeStyle}>{string}</Text>
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   textInit: {
     color: AppStyle.greyTextInput,
-    fontSize: 60,
+    fontSize: 40,
     fontFamily: 'OpenSans-Semibold'
   },
   waringFeeStyle: {
