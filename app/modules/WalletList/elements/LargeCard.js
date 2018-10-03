@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
     fontSize: isSmallScreen ? 14 : 20,
     fontFamily: 'OpenSans-Semibold',
     color: AppStyle.mainTextColor,
-    maxWidth: cardWidth - 145
+    maxWidth: cardWidth
   },
   backupField: {
     backgroundColor: '#D0021B',
