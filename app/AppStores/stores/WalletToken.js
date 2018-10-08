@@ -34,8 +34,15 @@ export default class WalletToken {
     this.title = tokenInfo.name
     this.address = tokenInfo.address !== '' ? tokenInfo.address : belongsToWalletAddress
     this.decimals = tokenInfo.decimals
-    this.symbol = tokenInfo.symbol
-    this.rate = tokenInfo.price ? new BigNumber(`${tokenInfo.price.rate}`) : new BigNumber(0)
+    const symbol = tokenInfo.symbol
+    this.symbol = symbol
+
+    const coins = appState.coins
+    if (symbol in coins && "price" in coins[symbol]) {
+      this.rate = new BigNumber(`${coins[symbol].price}`)
+    } else {
+      this.rate = tokenInfo.price ? new BigNumber(`${tokenInfo.price.rate}`) : new BigNumber(0)
+    }
 
     // For identify
     this.belongsToWalletAddress = belongsToWalletAddress
