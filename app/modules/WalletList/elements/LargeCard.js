@@ -159,6 +159,24 @@ export default class LargeCard extends Component {
       // unspendTransactions
     } = wallet
 
+    const shareText = Platform.OS === 'ios'
+      ? (
+        <View style={styles.backgroundCopy}>
+          <Text style={styles.copyButton}>
+            {constant.RECEIVE}
+          </Text>
+        </View>
+      )
+      : (
+        <Text
+          style={[
+            styles.copyButton, styles.backgroundCopy
+          ]}
+        >
+          {constant.RECEIVE}
+        </Text>
+      )
+
     const isHide = isHideValue
     const backgroundCard = AppStyle.mode1
     // const numberOfPendingTransaction = unspendTransactions.length
@@ -173,9 +191,7 @@ export default class LargeCard extends Component {
           }
         }}
       >
-        <Image
-          source={images.iconQrCode}
-        />
+        {shareText}
       </TouchableOpacity>
     )
 
