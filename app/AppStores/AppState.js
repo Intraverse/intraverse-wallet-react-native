@@ -55,7 +55,8 @@ class AppState {
     this.appWalletsStore = new AppWalletsStore()
     this.BgJobs = {
       CheckBalance: new BgJobs.CheckBalance(this, this.TIME_INTERVAL),
-      CheckPendingTransaction: new BgJobs.CheckPendingTransaction(this, this.TIME_INTERVAL)
+      CheckPendingTransaction: new BgJobs.CheckPendingTransaction(this, this.TIME_INTERVAL),
+      GetCoins: new BgJobs.GetCoins(this, this.TIME_INTERVAL)
     }
   }
 
@@ -72,6 +73,7 @@ class AppState {
     this.BgJobs.CheckPendingTransaction.doOnce()
     this.BgJobs.CheckBalance.start()
     this.BgJobs.CheckPendingTransaction.start()
+    this.BgJobs.GetCoins.start()
   }
 
   @action setConfig = (cf) => { this.config = cf }
@@ -154,7 +156,6 @@ class AppState {
       }
     }, 100)
   }
-
 
   @action async getGasPriceEstimate() {
     setTimeout(async () => {
