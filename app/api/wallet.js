@@ -180,6 +180,6 @@ export const fetchCollectibles = (address) => {
 }
 
 export const fetchCoins = () => {
-  const url = `${URL.Synchroniciti.coinsURL()}`
+  const url = `${URL.Synchroniciti.coinsURL()}?timestamp=${new Date().getTime()}`
   return caller.get(url, {}, true)
 }
