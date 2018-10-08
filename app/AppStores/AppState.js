@@ -254,6 +254,7 @@ class AppState {
     this.currentWalletIndex = 0
     this.setUnpendTransactions([])
     this.addressBooks = []
+    this.coins = {}
     this.appWalletsStore.removeAll()
   }
 
