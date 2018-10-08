@@ -38,8 +38,8 @@ export default class WalletToken {
     this.symbol = symbol
 
     const coins = appState.coins
-    if (symbol in coins && "price" in coins[symbol]) {
-      this.rate = new BigNumber(`${coins[symbol].price}`)
+    if (symbol in coins && "nominalPrice" in coins[symbol]) {
+      this.rate = new BigNumber(`${coins[symbol].nominalPrice}`)
     } else {
       this.rate = tokenInfo.price ? new BigNumber(`${tokenInfo.price.rate}`) : new BigNumber(0)
     }

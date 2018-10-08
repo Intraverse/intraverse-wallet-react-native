@@ -3,12 +3,12 @@
 		"MAP_T3": {
 			"logo": "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/logo/MAP.png",
 			"icon": "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/icon/MAP.png",
-			"price": 1
+			"nominalPrice": 1
 		},
 		"MAP": {
 			"logo": "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/logo/MAP.png",
 			"icon": "https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/icon/MAP.png",
-			"price": 1
+			"nominalPrice": 1
 		}
 	}
 }
