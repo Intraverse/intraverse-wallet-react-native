@@ -233,8 +233,8 @@ export default class LargeCard extends Component {
             source={Helper.getCardImage(wallet.tokens)}
             resizeMode="contain"
           />
-          <Text style={[styles.balance]}>{balanceSecret}</Text>
-          <Text style={[styles.balanceUSD, { marginBottom: 6 }]}>{balanceUSDSecret}</Text>
+          <Text style={[styles.balance]}>{balanceUSDSecret}</Text>
+          {/* <Text style={[styles.balanceUSD, { marginBottom: 6 }]}>{balanceUSDSecret}</Text> */}
           {isFetchingBalance && <SyncBalance />}
           <View style={{ position: 'absolute', bottom: isSmallScreen ? 10 : 20 }}>
             {actionButton}
