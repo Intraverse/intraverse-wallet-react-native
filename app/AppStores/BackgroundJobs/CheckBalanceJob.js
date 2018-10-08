@@ -43,3 +43,4 @@ export default class CheckBalanceJob {
     return this.jobId !== null
   }
 }
+``
