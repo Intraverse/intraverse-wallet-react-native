@@ -102,8 +102,9 @@ export default class TokenScreen extends Component {
           data={{
             cardItem: this.wallet,
             titleText: 'Estimated Value',
-            mainSubTitleText: `${Helper.formatETH(totalBalanceETH.toString(10))} ETH`,
-            viceSubTitleText: `$${Helper.formatUSD(totalBalanceDollar.toString(10))}`
+            // mainSubTitleText: `${Helper.formatETH(totalBalanceETH.toString(10))} ETH`,
+            // viceSubTitleText: `$${Helper.formatUSD(totalBalanceDollar.toString(10))}`
+            mainSubTitleText: `$${Helper.formatUSD(totalBalanceDollar.toString(10))}`
           }}
           style={{
             marginTop: 15,
