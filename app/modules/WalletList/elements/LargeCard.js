@@ -161,8 +161,8 @@ export default class LargeCard extends Component {
 
     const shareText = Platform.OS === 'ios'
       ? (
-        <View style={styles.backgroundCopy}>
-          <Text style={styles.copyButton}>
+        <View style={styles.backgroundReceive}>
+          <Text style={styles.receiveButton}>
             {constant.RECEIVE}
           </Text>
         </View>
@@ -170,7 +170,7 @@ export default class LargeCard extends Component {
       : (
         <Text
           style={[
-            styles.copyButton, styles.backgroundCopy
+            styles.receiveButton, styles.backgroundReceive
           ]}
         >
           {constant.RECEIVE}
@@ -461,5 +461,16 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     backgroundColor: 'white'
+  },
+  receiveButton: {
+    fontFamily: 'OpenSans-Bold',
+    fontSize: isSmallScreen ? 10 : 14,
+    color: AppStyle.buttonText
+  },
+  backgroundReceive: {
+    backgroundColor: AppStyle.buttonBackground,
+    paddingHorizontal: isSmallScreen ? 15 : 26,
+    paddingVertical: isSmallScreen ? 4 : 7,
+    borderRadius: 16
   }
 })
