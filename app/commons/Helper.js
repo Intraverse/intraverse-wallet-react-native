@@ -107,7 +107,7 @@ export default class Helper {
       }
       if (decimal.length > decimalAfterDot) {
         decimal = decimal.substring(0, decimalAfterDot)
-        decimal = this.removeRedundantZeros(decimal)
+        // decimal = this.removeRedundantZeros(decimal)
       }
       const result = `${this.numberWithCommas(integer)}.${decimal}`
       return decimal == 0 ? `${this.numberWithCommas(integer)}` : result
