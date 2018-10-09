@@ -336,6 +336,8 @@ export default class HomeScreen extends Component {
             }}
           >
             <Animated.Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
               style={{
                 opacity: changeOpacitySetting,
                 fontSize: 20,

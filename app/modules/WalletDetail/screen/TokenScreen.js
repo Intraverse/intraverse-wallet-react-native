@@ -113,7 +113,8 @@ export default class TokenScreen extends Component {
           titleStyle={{
             color: '#8A8D97',
             fontSize: 18,
-            fontFamily: Platform.OS === 'ios' ? 'OpenSans' : 'OpenSans-Regular'
+            fontFamily: Platform.OS === 'ios' ? 'OpenSans' : 'OpenSans-Regular',
+            maxWidth: '90%'
           }}
           mainSubTitleStyle={{
             color: AppStyle.mainColor,

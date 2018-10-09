@@ -82,9 +82,12 @@ export default class InformationCard extends Component {
           flexDirection: 'row'
         }}
         >
-          <Text style={[
-            titleStyle
-          ]}
+          <Text
+            adjustsFontSizeToFit
+            numberOfLines={1}
+            style={[
+              titleStyle
+            ]}
           >{titleText}
           </Text>
           <TouchableOpacity

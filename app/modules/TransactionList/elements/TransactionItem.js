@@ -84,13 +84,28 @@ export default class TransactionsItem extends Component {
               <Text style={styles.type}>{type}</Text>
               {status === 0 && <PendingTransaction style={{ marginLeft: 4 }} />}
             </View>
-            <Text style={[styles.balance, colorBalance]}>
-              {`${operator} ${Helper.formatETH(balance.toString(10))} ${symbol}`}
-            </Text>
+            <View style={{ maxWidth: '50%' }}>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={[styles.balance, colorBalance]}>
+                {`${operator} ${Helper.formatETH(balance.toString(10))} ${symbol}`}
+              </Text>
+            </View>
           </View>
           <View style={[styles.rowStyle, { marginTop: 5 }]}>
-            <Text style={styles.date}>{date}</Text>
-            <Text style={styles.balanceUSD}>{`$${Helper.formatUSD(balanceUSD.toString(10))}`}</Text>
+            <View style={{ maxWidth: '50%' }}>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={styles.date}>{date}</Text>
+            </View>
+            <View style={{ maxWidth: '50%' }}>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={styles.balanceUSD}>{`$${Helper.formatUSD(balanceUSD.toString(10))}`}</Text>
+            </View>
           </View>
         </View>
       </TouchableWithoutFeedback>

@@ -124,7 +124,10 @@ export default class UnlockScreen extends Component {
             key={num.number}
           >
             <View style={styles.numberField}>
-              <Text style={styles.numberText}>{num.number}</Text>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={styles.numberText}>{num.number}</Text>
             </View>
           </TouchableOpacity>
         )
@@ -148,7 +151,10 @@ export default class UnlockScreen extends Component {
               />
             }
             {num.actions === 'cancel' &&
-              <Text style={styles.cancelText}>Cancel</Text>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={styles.cancelText}>Cancel</Text>
             }
           </View>
         </TouchableOpacity>
@@ -174,7 +180,10 @@ export default class UnlockScreen extends Component {
     })
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={styles.desText}>{unlockDescription}</Text>
+        <Text
+          adjustsFontSizeToFit
+          numberOfLines={1}
+          style={styles.desText}>{unlockDescription}</Text>
         {warningPincodeFail &&
           <Text style={styles.warningField}>{warningPincodeFail}</Text>
         }

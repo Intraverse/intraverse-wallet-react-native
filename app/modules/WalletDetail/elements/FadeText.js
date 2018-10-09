@@ -69,6 +69,8 @@ export default class FadeText extends Component {
           {text !== null &&
             <Animated.Text
               style={[styles.text, textStyle, { opacity: opacity1 }]}
+              adjustsFontSizeToFit
+              numberOfLines={1}
             >
               {text}
             </Animated.Text>}

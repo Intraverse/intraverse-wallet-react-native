@@ -81,6 +81,8 @@ export default class NavigationHeader extends Component {
             }
             {title &&
               <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
                 style={[styles.titleStyle, { marginLeft: icon ? 10 : 20 }, titleStyle]}
               >
                 {title}
@@ -97,7 +99,10 @@ export default class NavigationHeader extends Component {
             >
               <Image source={rightViewIcon} />
               {rightViewTitle &&
-                <Text style={[styles.rightTitle, styleTitle]}>{rightViewTitle}</Text>
+                <Text
+                  adjustsFontSizeToFit
+                  numberOfLines={1}
+                  style={[styles.rightTitle, styleTitle]}>{rightViewTitle}</Text>
               }
             </View>
           </TouchableWithoutFeedback>
@@ -112,7 +117,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingBottom: 15
+    paddingBottom: 15,
+    width: '50%'
   },
   titleStyle: {
     fontSize: 20,
@@ -124,7 +130,8 @@ const styles = StyleSheet.create({
     right: 20,
     bottom: 15,
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '40%'
   },
   rightTitle: {
     fontFamily: 'OpenSans-Semibold',

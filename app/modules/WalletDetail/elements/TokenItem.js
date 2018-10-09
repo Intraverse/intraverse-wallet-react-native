@@ -105,6 +105,7 @@ export default class TokenItem extends Component {
             <View style={[styles.viewTitle]}>
               <Text
                 numberOfLines={1}
+                adjustsFontSizeToFit
                 ellipsizeMode="tail"
                 style={styles.title}
               >
@@ -112,6 +113,7 @@ export default class TokenItem extends Component {
               </Text>
               <Text
                 numberOfLines={1}
+                adjustsFontSizeToFit
                 ellipsizeMode="tail"
                 style={[styles.subTitle]}
               >
@@ -151,7 +153,6 @@ const styles = StyleSheet.create({
   },
   viewUp: {
     flexDirection: 'row',
-    height: 50,
     flex: 1,
     alignItems: 'center'
   },

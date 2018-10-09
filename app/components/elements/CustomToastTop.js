@@ -56,7 +56,10 @@ export default class CustomToastTop extends Component {
           ]
         }, style]}
       >
-        <Text style={[styles.copyText, styleText]}>{content}</Text>
+        <Text
+          adjustsFontSizeToFit
+          numberOfLines={1}
+          style={[styles.copyText, styleText]}>{content}</Text>
       </Animated.View>
     )
   }

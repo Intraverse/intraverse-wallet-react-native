@@ -58,7 +58,10 @@ export default class SettingItem extends PureComponent {
     if (type === 'expanse') {
       return (
         <View style={styles.rightField}>
-          <Text style={[styles.text, { marginRight: 10 }]}>{subText}</Text>
+          <Text
+            adjustsFontSizeToFit
+            numberOfLines={1}
+            style={[styles.text, { marginRight: 10 }]}>{subText}</Text>
           {showArrow &&
             <Image source={expanse ? images.iconUp : images.iconDown} />
           }
@@ -67,7 +70,10 @@ export default class SettingItem extends PureComponent {
     }
     return (
       <View style={styles.rightField}>
-        <Text style={[styles.text, { marginRight: 10 }]}>{subText}</Text>
+        <Text
+          adjustsFontSizeToFit
+          numberOfLines={1}
+          style={[styles.text, { marginRight: 10 }]}>{subText}</Text>
         {showArrow &&
           <Image source={images.icon_indicator} />
         }
@@ -83,13 +89,19 @@ export default class SettingItem extends PureComponent {
       <View>
         <TouchableOpacity onPress={onPress} disabled={disable}>
           <View style={[styles.container, style]}>
-            <Text style={styles.text}>{mainText}</Text>
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={styles.text}>{mainText}</Text>
             {iconRight && this.renderRightField()}
           </View>
         </TouchableOpacity>
         {expanse && data !== '' &&
           <View style={styles.textView}>
-            <Text style={styles.textStyle}>{data}</Text>
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={styles.textStyle}>{data}</Text>
           </View>}
       </View>
     )
