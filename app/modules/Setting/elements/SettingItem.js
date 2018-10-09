@@ -100,7 +100,6 @@ export default class SettingItem extends PureComponent {
           <View style={styles.textView}>
             <Text
               adjustsFontSizeToFit
-              numberOfLines={1}
               style={styles.textStyle}>{data}</Text>
           </View>}
       </View>
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
   textStyle: {
     fontFamily: 'OpenSans',
     fontSize: 14,
-    color: AppStyle.backgroundGrey
+    color: AppStyle.mainColor
   },
   textView: {
     paddingBottom: 20,
