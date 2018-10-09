@@ -151,6 +151,18 @@ export const changelogsList = () => {
     "data": {
       "data": [
         {
+          "version_number": "0.4",
+          "is_release": true,
+          "change_logs": "Support iOS dynamic fonts",
+          "created_at": "2018-10-09T13:48:43.878Z"
+        },
+        {
+          "version_number": "0.3",
+          "is_release": true,
+          "change_logs": "Nominal value for supported coins\r\nusability improvements",
+          "created_at": "2018-10-08T13:48:43.878Z"
+        },
+        {
           "version_number": "0.2",
           "is_release": true,
           "change_logs": "Branding update",
