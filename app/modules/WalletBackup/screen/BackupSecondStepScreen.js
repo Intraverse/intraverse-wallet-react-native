@@ -18,7 +18,7 @@ import MainStore from '../../../AppStores/MainStore'
 
 const marginTop = LayoutUtils.getExtraTop()
 const mainText = 'Write down your Recovery Phrase in the order and keep it in a secure place.'
-const subText = 'Do not share with anyone including Golden support.'
+const subText = 'Do not share with anyone including support.'
 
 @observer
 export default class BackupSecondStepScreen extends Component {
@@ -97,9 +97,13 @@ export default class BackupSecondStepScreen extends Component {
             }}
             action={this.onBack}
           />
-          <Text style={styles.mainText}>{mainText}</Text>
+          <Text
+            allowFontScaling={0}
+            style={styles.mainText}>{mainText}</Text>
           {this.renderMnemonic()}
-          <Text style={styles.subText}>{subText}</Text>
+          <Text
+            allowFontScaling={0}
+            style={styles.subText}>{subText}</Text>
           <BottomButton
             text="Next Step"
             onPress={this.onPress}

@@ -120,7 +120,9 @@ export default class BottomButton extends Component {
           onPress={this.onPress}
           style={styles.saveButton}
         >
-          <Text style={{ fontSize: 16, color: disable ? AppStyle.backgroundColor : AppStyle.backgroundTextInput, fontFamily: 'OpenSans-Semibold' }}>
+          <Text
+            allowFontScaling={0}
+            style={{ fontSize: 16, color: disable ? AppStyle.backgroundColor : AppStyle.backgroundTextInput, fontFamily: 'OpenSans-Semibold' }}>
             {text}
           </Text>
         </TouchableOpacity>

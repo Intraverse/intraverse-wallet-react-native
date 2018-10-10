@@ -18,7 +18,7 @@ const marginTop = LayoutUtils.getExtraTop()
 const isSmallScreen = LayoutUtils.isSmallScreen()
 const content = [
   'The Recovery Phrase will allow you to recover your wallet in case of the phone loss.',
-  'Golden cannot restore it once lost, so please keep it safe.',
+  'We cannot restore it once lost, so please keep it safe.',
   'Anyone with your Recovery Phrase can restore and controls all your assets.'
 ]
 
@@ -35,7 +35,9 @@ export default class BackupFirstStepScreen extends Component {
     return (
       <View style={[styles.containerContent, style]}>
         <View style={styles.dot} />
-        <Text style={styles.des}>{des}</Text>
+        <Text
+          allowFontScaling={false}
+          style={styles.des}>{des}</Text>
       </View>
     )
   }
@@ -54,7 +56,10 @@ export default class BackupFirstStepScreen extends Component {
             action={this.onBack}
           />
           <Image style={styles.image} source={images.backupNoteBook} />
-          <Text style={styles.attention}>No backup, No wallet!</Text>
+          <Text
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            style={styles.attention}>No backup, No wallet!</Text>
           {this.renderContent(content[0], { marginTop: isSmallScreen ? 20 : 40 })}
           {this.renderContent(content[1], { marginTop: isSmallScreen ? 15 : 30 })}
           {this.renderContent(content[2], { marginTop: isSmallScreen ? 15 : 30 })}

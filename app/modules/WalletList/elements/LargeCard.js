@@ -218,7 +218,9 @@ export default class LargeCard extends Component {
                 onPress={onBackup}
               >
                 <View style={styles.backupField}>
-                  <Text style={styles.backupText}>
+                  <Text
+                    allowFontScaling={false}
+                    style={styles.backupText}>
                     {constant.BACKUP}
                   </Text>
                 </View>
@@ -249,7 +251,9 @@ export default class LargeCard extends Component {
             source={Helper.getCardImage(wallet.tokens)}
             resizeMode="contain"
           />
-          <Text style={[styles.balance]}>{balanceUSDSecret}</Text>
+          <Text
+            allowFontScaling={false}
+            style={[styles.balance]}>{balanceUSDSecret}</Text>
           {/* <Text style={[styles.balanceUSD, { marginBottom: 6 }]}>{balanceUSDSecret}</Text> */}
           {isFetchingBalance && <SyncBalance />}
           <View style={{ position: 'absolute', bottom: isSmallScreen ? 10 : 20 }}>
@@ -266,7 +270,9 @@ export default class LargeCard extends Component {
     const shareText = Platform.OS === 'ios'
       ? (
         <View style={styles.backgroundCopy}>
-          <Text style={styles.copyButton}>
+          <Text
+            allowFontScaling={false}
+            style={styles.copyButton}>
             {constant.SHARE}
           </Text>
         </View>
@@ -314,7 +320,10 @@ export default class LargeCard extends Component {
           >
             {title}
           </Text>
-          <Text style={[styles.cardBackAddress, commonStyle.fontAddress]}>{address}</Text>
+          <Text
+            numberOfLines={2}
+            adjustsFontSizeToFit
+            style={[styles.cardBackAddress, commonStyle.fontAddress]}>{address}</Text>
           <TouchableOpacity
             onPress={this.onShare}
             style={{ marginTop: cardHeight * 0.06 }}
@@ -374,7 +383,8 @@ const styles = StyleSheet.create({
     fontSize: isSmallScreen ? 14 : 20,
     fontFamily: 'OpenSans-Semibold',
     color: AppStyle.mainTextColor,
-    maxWidth: cardWidth
+    maxWidth: cardWidth,
+    maxHeight: 60
   },
   backupField: {
     backgroundColor: '#D0021B',

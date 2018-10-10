@@ -173,7 +173,9 @@ export default class PopupCustom extends Component {
             onPress={() => { btn.onClick(valueInput) }}
           >
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={[styles.textButton, styleTextDisable]}>{btn.text}</Text>
+              <Text
+                allowFontScaling={false}
+                style={[styles.textButton, styleTextDisable]}>{btn.text}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -234,7 +236,9 @@ export default class PopupCustom extends Component {
           {content}
         </Text>
       )
-      : <Text style={[styles.contentPopup, contentMarginTop, fontAddress]}>{content}</Text>
+      : <Text
+        allowFontScaling={false}
+        style={[styles.contentPopup, contentMarginTop, fontAddress]}>{content}</Text>
     return (
       <Modal
         animationType="none"
@@ -261,7 +265,9 @@ export default class PopupCustom extends Component {
                 {image &&
                   <Image style={{ alignSelf: 'center', marginBottom: 20 }} source={image} />
                 }
-                <Text style={[styles.titlePopup, titleColor]}>{title}</Text>
+                <Text
+                  allowFontScaling={false}
+                  style={[styles.titlePopup, titleColor]}>{title}</Text>
                 {content &&
                   renderContent
                 }

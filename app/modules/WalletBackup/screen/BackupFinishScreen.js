@@ -47,14 +47,21 @@ export default class CreateWalletScreen extends Component {
         <Image
           source={images.imgLock}
         />
-        <Text style={styles.maintext}>{maintext}</Text>
-        <Text style={styles.textDes}>{subtext}</Text>
+        <Text
+          allowFontScaling={0}
+          style={styles.maintext}>{maintext}</Text>
+        <Text
+          numberOfLines={6}
+          adjustsFontSizeToFit
+          style={styles.textDes}>{subtext}</Text>
         <View style={{ position: 'absolute', left: 20, bottom: isIPX ? 40 : 20 }}>
           <TouchableOpacity
             style={styles.buttonGotIt}
             onPress={this.gotoHome}
           >
-            <Text style={styles.textGotIt}>
+            <Text
+              allowFontScaling={false}
+              style={styles.textGotIt}>
               {constant.GOT_IT}
             </Text>
           </TouchableOpacity>

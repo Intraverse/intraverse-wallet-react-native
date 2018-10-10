@@ -132,7 +132,9 @@ export default class BackupThirdStepScreen extends Component {
             action={this.onBack}
           />
           <View style={styles.content}>
-            <Text style={styles.desText}>{content}</Text>
+            <Text
+              allowFontScaling={0}
+              style={styles.desText}>{content}</Text>
             {this.renderListTop()}
             {this.renderListBottom()}
           </View>
