@@ -106,7 +106,7 @@ class SendStore {
       return Promise.reject(err)
     }
     const valueFormat = transaction.value
-      ? transaction.value.times(new BigNumber(1e+18)).toString(16)
+      ? transaction.value.times(new BigNumber(1e+18)).integerValue().toString(16)
       : transaction.value
 
     const transactionSend = { ...transaction, value: `0x${valueFormat}` }

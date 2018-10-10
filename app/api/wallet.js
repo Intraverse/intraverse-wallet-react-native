@@ -153,13 +153,13 @@ export const changelogsList = () => {
         {
           "version_number": "0.4",
           "is_release": true,
-          "change_logs": "Support iOS dynamic fonts",
+          "change_logs": "Support iOS dynamic fonts\r\nFix: send by $ value",
           "created_at": "2018-10-09T13:48:43.878Z"
         },
         {
           "version_number": "0.3",
           "is_release": true,
-          "change_logs": "Nominal value for supported coins\r\nusability improvements",
+          "change_logs": "Nominal value for supported coins\r\nUsability improvements",
           "created_at": "2018-10-08T13:48:43.878Z"
         },
         {
