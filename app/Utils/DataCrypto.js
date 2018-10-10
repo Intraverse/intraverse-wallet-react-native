@@ -27,13 +27,13 @@ export const hashPassword = (password) => {
 }
 
 export const encryptString = (string, password, iv, algorithm = 'aes-256-cbc') => {
-  const dataBuff = new Buffer(string, 'utf8')
+  const dataBuff = new Buffer.from(string, 'utf8')
   const encrypted = encryptData(dataBuff, password, iv, algorithm)
   return encrypted.toString('hex')
 }
 
 export const decryptString = (string, password, iv, algorithm = 'aes-256-cbc') => {
-  const dataBuff = new Buffer(string, 'hex')
+  const dataBuff = new Buffer.from(string, 'hex')
   const decrypted = decryptData(dataBuff, password, iv, algorithm)
   return decrypted.toString()
 }
