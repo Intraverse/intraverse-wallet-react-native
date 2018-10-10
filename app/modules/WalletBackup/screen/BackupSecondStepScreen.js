@@ -98,11 +98,11 @@ export default class BackupSecondStepScreen extends Component {
             action={this.onBack}
           />
           <Text
-            allowFontScaling={0}
+            allowFontScaling={false}
             style={styles.mainText}>{mainText}</Text>
           {this.renderMnemonic()}
           <Text
-            allowFontScaling={0}
+            allowFontScaling={false}
             style={styles.subText}>{subText}</Text>
           <BottomButton
             text="Next Step"

@@ -121,7 +121,7 @@ export default class BottomButton extends Component {
           style={styles.saveButton}
         >
           <Text
-            allowFontScaling={0}
+            allowFontScaling={false}
             style={{ fontSize: 16, color: disable ? AppStyle.backgroundColor : AppStyle.backgroundTextInput, fontFamily: 'OpenSans-Semibold' }}>
             {text}
           </Text>

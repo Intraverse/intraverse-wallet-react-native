@@ -133,7 +133,7 @@ export default class BackupThirdStepScreen extends Component {
           />
           <View style={styles.content}>
             <Text
-              allowFontScaling={0}
+              allowFontScaling={false}
               style={styles.desText}>{content}</Text>
             {this.renderListTop()}
             {this.renderListBottom()}
