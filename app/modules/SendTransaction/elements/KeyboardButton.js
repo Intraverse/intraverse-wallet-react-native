@@ -57,6 +57,7 @@ export default class KeyBoardButton extends Component {
           ]}
         >
           <Text
+            allowFontScaling={false}
             style={contentStyle}
           >
             {content}

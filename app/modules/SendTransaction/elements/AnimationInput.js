@@ -40,19 +40,19 @@ export default class AnimationInput extends Component {
       fontSize: this.amountStore.checkSmallSize ? 30 : 40
     }
     const prefixTitle = isUSD
-      ? <Text style={style}>$</Text>
+      ? <Text allowFontScaling={false} style={style}>$</Text>
       : null
     const postfixTitle = !isUSD
-      ? <Text style={[{ marginLeft: 15 }, style]}>{this.props.postfix}</Text>
+      ? <Text allowFontScaling={false} style={[{ marginLeft: 15 }, style]}>{this.props.postfix}</Text>
       : null
     const warningTitle = this.amountStore.checkWarningTitle
-      ? <Text style={styles.waringStyle}>Max exceeded (inc. network fee)</Text>
+      ? <Text allowFontScaling={false} style={styles.waringStyle}>Max exceeded (inc. network fee)</Text>
       : null
     const warningFee = this.amountStore.checkMaxBalanceWithFee
-      ? <Text style={styles.waringFeeStyle}>{string}</Text>
+      ? <Text allowFontScaling={false} style={styles.waringFeeStyle}>{string}</Text>
       : null
     const textInit = data.length == 0
-      ? <Text style={styles.textInit}>{isUSD ? '0' : '0.0'}</Text>
+      ? <Text allowFontScaling={false} style={styles.textInit}>{isUSD ? '0' : '0.0'}</Text>
       : null
     return (
       <View style={{ justifyContent: 'center' }}>
@@ -90,7 +90,9 @@ export default class AnimationInput extends Component {
           style={{ justifyContent: 'center', flexDirection: 'row', height: 60 }}
         >
           <View>
-            <Text style={[styles.subTitle, { color: data.length == 0 ? AppStyle.greyTextInput : AppStyle.secondaryTextColor }]}>
+            <Text
+              allowFontScaling={false}
+              style={[styles.subTitle, { color: data.length == 0 ? AppStyle.greyTextInput : AppStyle.secondaryTextColor }]}>
               {this.props.subData}
             </Text>
             {warningTitle || warningFee}

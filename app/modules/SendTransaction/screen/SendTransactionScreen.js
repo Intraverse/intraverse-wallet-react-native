@@ -99,8 +99,8 @@ export default class SendTransactionScreen extends Component {
           style={styles.headerTitle}
           onPress={this._onOpenModal}
         >
-          <Text style={styles.walletName}>{this.amountStore.walletName}:</Text>
-          <Text style={styles.headerBalance}>{this.amountStore.amountHeaderString}</Text>
+          <Text allowFontScaling={false} style={styles.walletName}>{this.amountStore.walletName}:</Text>
+          <Text allowFontScaling={false} style={styles.headerBalance}>{this.amountStore.amountHeaderString}</Text>
         </TouchableOpacity>
       </View>
     )
@@ -126,7 +126,7 @@ export default class SendTransactionScreen extends Component {
         disabled={!this.amountStore.checkButtonEnable}
         onPress={this._onSendPress}
       >
-        <Text style={[styles.sendText, { color: this.amountStore.checkButtonEnable ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
+        <Text allowFontScaling={false} style={[styles.sendText, { color: this.amountStore.checkButtonEnable ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
           {constant.SEND_TO}
         </Text>
       </TouchableOpacity>
