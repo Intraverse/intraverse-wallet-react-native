@@ -173,7 +173,7 @@ export default class AdressInputScreen extends Component {
           </View>
         </TouchableOpacity>
         <View style={styles.line} />
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={this.openAddressModal}
         >
           <View
@@ -185,7 +185,7 @@ export default class AdressInputScreen extends Component {
               Address Book
             </Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     )
   }
