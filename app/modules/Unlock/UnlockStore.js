@@ -200,7 +200,7 @@ class UnlockStore {
     return new Promise(async (resolve) => {
       const { pincode } = this.data
       const secureDS = await SecureDS.getInstance(pincode)
-      if (!__DEV__ && !secureDS) {
+      if (!secureDS) {
         this._handleErrorPin()
       } else {
         HapticHandler.NotificationSuccess()
