@@ -37,6 +37,8 @@ export default class BackupFirstStepScreen extends Component {
         <View style={styles.dot} />
         <Text
           allowFontScaling={false}
+          numberOfLines={2}
+          adjustsFontSizeToFit
           style={styles.des}>{des}</Text>
       </View>
     )
