@@ -68,8 +68,12 @@ react-native run-ios --configuration Release
 
 Build release APK according to the [react-native documentation](https://facebook.github.io/react-native/docs/signed-apk-android):
 
-Create a signing key:
-	
+Create a signing key and place copy in android/app directory:
+
+	Default is synchroniciti-wallet-release-key.keystore
+
+Update authentication details for the key store:
+
 	mkdir ~/.gradle/gradle.properties
 		ANDROID_STORE_PASSWORD=[password]
 		ANDROID_KEY_PASSWORD=[password]
