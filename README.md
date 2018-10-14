@@ -7,7 +7,6 @@ This is a fork of [golden wallet](https://github.com/goldennetwork/golden-wallet
 - [x] Create/Import Ethereum wallet
 - [x] Check balances, transactions
 - [x] Send/Receive ETH and ERC20 Token
-- [x] Tracking your balance with Notification.
 - [x] ĐAPP web browser and list collectible items.
 
 ## Build Synchroniciti Wallet 
@@ -20,8 +19,8 @@ Install the dependencies in the local node_modules folder.
 
 	npm install
 
-#### IOS
-##### CocoaPods
+### IOS
+#### CocoaPods
 > CocoaPods 1.3+ is required
 
 Run from your terminal to install the library.
@@ -38,7 +37,7 @@ To choose specific device
 
 	react-native run-ios --simulator="iPhone XR"
 
-#### Android
+### Android
 Run Synchroniciti Wallet on Android
 
 	react-native run-android
@@ -91,3 +90,16 @@ Reactotron is linked for development builds:
 
 https://github.com/infinitered/reactotron/blob/master/docs/installing.md
 
+## Testing
+
+### Release Build
+
+It's a good idea to check the release build runs.
+
+Android:
+
+	react-native run-android --variant=release
+
+iOS
+
+	react-native run-ios --configuration=release
