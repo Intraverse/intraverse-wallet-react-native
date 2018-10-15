@@ -42,12 +42,11 @@ Run Synchroniciti Wallet on Android
 
 	react-native run-android
 
-### Fixes to build issues
+### Fixes to (Xcode 10) build issues
 
 Fix glog issue:
-* In the Terminal, navigate to the react-native/third-party/glog folder inside node_modules (for me, this was cd node_modules/react-native/third-party/glog-0.3.4)
-* Once actively in this folder, run ../../scripts/ios-configure-glog.sh
-* Glog is configured and the required config.h header file is created for Xcode to find
+
+	cd node_modules/react-native/third-party/glog-0.3.4/ && ../../scripts/ios-configure-glog.sh && cd ../../../..
 
 Fix libfishhook issue:
 https://github.com/facebook/react-native/issues/19569
