@@ -240,6 +240,7 @@ export default class SearchInput extends Component {
           placeholderTextColor={AppStyle.greyTextInput}
           onChangeText={this.onChangeText}
           keyboardType={keyboardType}
+          allowFontScaling={false}
         />
         {value !== '' && !action && this.renderIconClear()}
         {value === '' && needPasteButton && this.renderPasteButton()}
