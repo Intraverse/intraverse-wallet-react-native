@@ -75,8 +75,12 @@ export default class SmallCard extends Component {
               maxWidth: width - 150
             }}
           >
-            <Text style={[styles.title, titleTextStyle]}>{title}</Text>
-            <Text style={[styles.subtitle, subtitleTextStyle]}>{subtitle}</Text>
+            <Text
+              allowFontScaling={false}
+              style={[styles.title, titleTextStyle]}>{title}</Text>
+            <Text
+              allowFontScaling={false}
+              style={[styles.subtitle, subtitleTextStyle]}>{subtitle}</Text>
           </View>
           <Image
             resizeMode="contain"

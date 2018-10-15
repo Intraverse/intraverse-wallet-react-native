@@ -118,7 +118,7 @@ export default class LargeCard extends Component {
         style={[styles.container]}
         onPress={onPress}
       >
-        <View style={[styles.container, { marginTop: 20, margin: 5 }]}>
+        <View style={[styles.container, { marginTop: 20, margin: 5, padding: 15 }]}>
           <Image
             style={{
               height: cardHeight, width: cardWidth, position: 'absolute', borderRadius: 14
@@ -131,6 +131,8 @@ export default class LargeCard extends Component {
             source={images.iconLargeAdd}
           />
           <Text
+            adjustsFontSizeToFit
+            numberOfLines={1}
             style={{
               color: AppStyle.mainColor,
               fontFamily: 'OpenSans-Semibold',
