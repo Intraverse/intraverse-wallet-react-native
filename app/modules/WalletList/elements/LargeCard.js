@@ -385,7 +385,7 @@ const styles = StyleSheet.create({
     fontSize: isSmallScreen ? 14 : 20,
     fontFamily: 'OpenSans-Semibold',
     color: AppStyle.mainTextColor,
-    maxWidth: cardWidth,
+    maxWidth: '50%',
     maxHeight: 60
   },
   backupField: {
