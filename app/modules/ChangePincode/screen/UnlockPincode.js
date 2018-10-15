@@ -105,7 +105,10 @@ export default class UnlockPincode extends Component {
               />
             }
             {num.actions === 'cancel' &&
-              <Text style={styles.cancelText}>Cancel</Text>
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={styles.cancelText}>Cancel</Text>
             }
           </View>
         </TouchableOpacity>
@@ -137,7 +140,10 @@ export default class UnlockPincode extends Component {
           // style={{ marginTop: isSmallScreen ? 10 : height * 0.07 }}
           isSpin={false}
         />
-        <Text style={styles.desText}>{unlockDescription}</Text>
+        <Text
+          adjustsFontSizeToFit
+          numberOfLines={1}
+          style={styles.desText}>{unlockDescription}</Text>
         <Animated.View
           style={[styles.pinField, {
             transform: [
