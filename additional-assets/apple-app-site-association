@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "1436914733.com.intraversetech.gwallet",
+                "paths": [ "/t/*"]
+            }
+        ]
+    }
+}

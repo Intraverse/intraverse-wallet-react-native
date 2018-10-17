@@ -10,7 +10,8 @@ import {
   View,
   AppState,
   Keyboard,
-  NetInfo
+  NetInfo,
+  Linking
 } from 'react-native'
 import crashlytics from 'react-native-fabric-crashlytics'
 import Router from './app/Router'
@@ -45,10 +46,21 @@ export default class App extends Component {
       NavStore.popupCustom.show(e.message)
       // SplashScreen.hide()
     }
+
+    Linking.getInitialURL().then((url) => {
+      if (url) {
+        console.log('Initial url is: ' + url);
+      }
+    }).catch(err => console.error('An error occurred', err));
+
+    Linking.addEventListener('url', this._handleOpenURL);
   }
 
   componentWillUnmount() {
     AppState.removeEventListener('change', this._handleAppStateChange)
+
+    Linking.removeEventListener('url', this._handleOpenURL);
+
   }
 
   handleFirstConnectivityChange = (connection) => {
@@ -72,6 +84,10 @@ export default class App extends Component {
   }
 
   appState = 'active'
+
+  _handleOpenURL(event) {
+    console.log(event.url);
+  }
 
   _handleAppStateChange = (nextAppState) => {
     if (this.appState === 'active' && nextAppState === 'inactive') {
