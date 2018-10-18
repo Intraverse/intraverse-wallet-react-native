@@ -10,8 +10,7 @@ import {
   View,
   AppState,
   Keyboard,
-  NetInfo,
-  Alert
+  NetInfo
 } from 'react-native'
 import crashlytics from 'react-native-fabric-crashlytics'
 import Router from './app/Router'
@@ -24,12 +23,10 @@ import NotificationStore from './app/AppStores/stores/Notification'
 import PushNotificationHelper from './app/commons/PushNotificationHelper'
 import AppStyle from './app/commons/AppStyle'
 import './ReactotronConfig'
-import branch from 'react-native-branch'
 
 console.ignoredYellowBox = ['Warning: isMounted']
 
 export default class App extends Component {
-  _unsubscribeFromBranch = null
 
   async componentWillMount() {
     await MainStore.startApp()
@@ -49,56 +46,11 @@ export default class App extends Component {
       NavStore.popupCustom.show(e.message)
       // SplashScreen.hide()
     }
-
-    _unsubscribeFromBranch = branch.subscribe(({ error, params }) => {
-      if (error) {
-        console.error('Error from Branch: ' + error)
-        return
-      }
-
-      // params will never be null if error is null
-
-      if (params['+non_branch_link']) {
-        const nonBranchUrl = params['+non_branch_link']
-        // Route non-Branch URL if appropriate.
-        return
-      }
-
-      if (!params['+clicked_branch_link']) {
-        // Indicates initialization success and some other conditions.
-        // No link was opened.
-        return
-      }
-
-      // A Branch link was opened.
-      // Route link based on data in params.
-
-      if (!params['snd']) {
-        // link wasn't a valid send
-        return
-      }
-
-      const snd = params.snd
-
-      Alert.alert(
-        'Alert',
-        'You have received a message: ' + snd,
-        [
-          { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-          { text: 'OK', onPress: () => console.log('OK Pressed') },
-        ],
-        { cancelable: false }
-      )
-    })
   }
 
   componentWillUnmount() {
     AppState.removeEventListener('change', this._handleAppStateChange)
-
-    if (_unsubscribeFromBranch) {
-      _unsubscribeFromBranch()
-      _unsubscribeFromBranch = null
-    }
+    MainStore.stopApp()
   }
 
   handleFirstConnectivityChange = (connection) => {

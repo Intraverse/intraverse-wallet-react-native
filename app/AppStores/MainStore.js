@@ -3,6 +3,7 @@ import SecureDS from './DataSource/SecureDS'
 import AppDS from './DataSource/AppDS'
 import appState from './AppState'
 import PushNotificationHelper from '../commons/PushNotificationHelper'
+import BranchListener from '../commons/BranchListener'
 
 // do not allow change state outside action function
 // configure({ enforceActions: true })
@@ -29,8 +30,14 @@ class MainStore {
   @action async startApp() {
     await AppDS.readAppData()
     PushNotificationHelper.init()
+    BranchListener.init()
     appState.startAllServices()
   }
+
+  @action stopApp() {
+    BranchListener.stop()
+  }
+
 }
 
 export default new MainStore()
