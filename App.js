@@ -86,7 +86,7 @@ export default class App extends Component {
   appState = 'active'
 
   _handleOpenURL(event) {
-    console.log(event.url);
+    console.log('OpenURL: ' + event.url);
   }
 
   _handleAppStateChange = (nextAppState) => {
