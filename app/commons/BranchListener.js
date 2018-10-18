@@ -1,7 +1,5 @@
-import {
-  Alert
-} from 'react-native'
 import branch from 'react-native-branch'
+import WalletReceiveStore from '../modules/WalletReceive/WalletReceiveStore'
 
 class BranchListener {
   _unsubscribeFromBranch = null
@@ -36,16 +34,8 @@ class BranchListener {
       }
 
       const snd = params.snd
-
-      Alert.alert(
-        'Alert',
-        'You have received a message: ' + snd,
-        [
-          { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-          { text: 'OK', onPress: () => console.log('OK Pressed') },
-        ],
-        { cancelable: false }
-      )
+      WalletReceiveStore.isInitFromNotification = true
+      WalletReceiveStore.setCurrentReceipt(snd)
     })
   }
 
