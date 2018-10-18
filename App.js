@@ -11,7 +11,8 @@ import {
   AppState,
   Keyboard,
   NetInfo,
-  Linking
+  Linking,
+  Alert
 } from 'react-native'
 import crashlytics from 'react-native-fabric-crashlytics'
 import Router from './app/Router'
@@ -28,6 +29,12 @@ import './ReactotronConfig'
 console.ignoredYellowBox = ['Warning: isMounted']
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this._handleOpenURL = this._handleOpenURL.bind(this);
+  }
+
   async componentWillMount() {
     await MainStore.startApp()
     NetInfo.addEventListener(
@@ -50,6 +57,7 @@ export default class App extends Component {
     Linking.getInitialURL().then((url) => {
       if (url) {
         console.log('Initial url is: ' + url);
+        this._processReceive(url);
       }
     }).catch(err => console.error('An error occurred', err));
 
@@ -85,8 +93,22 @@ export default class App extends Component {
 
   appState = 'active'
 
+  _processReceive(url) {
+    Alert.alert(
+      'Alert',
+      'You have received a message: ' + url,
+      [
+        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false }
+    )
+
+  }
+
   _handleOpenURL(event) {
     console.log('OpenURL: ' + event.url);
+    this._processReceive(event.url);
   }
 
   _handleAppStateChange = (nextAppState) => {
