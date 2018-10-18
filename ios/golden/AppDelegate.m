@@ -13,12 +13,17 @@
 #import <Crashlytics/Crashlytics.h>
 #import "RNSplashScreen.h"
 //#import "RNFIRMessaging.h" FireBase
-#import <React/RCTLinkingManager.h>
+#import <react-native-branch/RNBranch.h> // at the top
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  // Branch.io init
+  // Uncomment this line to use the test key instead of the live one.
+  // [RNBranch useTestInstance];
+  [RNBranch initSessionWithLaunchOptions:launchOptions isReferrable:YES];
+
   NSURL *jsCodeLocation;
 
   #ifdef DEBUG
@@ -44,6 +49,7 @@
   [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
 
   application.applicationIconBadgeNumber = 0;
+  
   return YES;
 }
 
@@ -75,11 +81,11 @@
 //  [RNFIRMessaging didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 //}
 
-- (BOOL)application:(UIApplication *)application
-   openURL:(NSURL *)url
-   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
-{
-  return [RCTLinkingManager application:application openURL:url options:options];
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if (![RNBranch.branch application:app openURL:url options:options]) {
+    // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
+  }
+  return YES;
 }
 
 // Universal link integration
@@ -87,9 +93,7 @@
 continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *restorableObjects))restorationHandler
 {
- return [RCTLinkingManager application:application
-                  continueUserActivity:userActivity
-                    restorationHandler:restorationHandler];
+  return [RNBranch continueUserActivity:userActivity];
 }
 
 @end

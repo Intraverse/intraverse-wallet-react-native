@@ -171,6 +171,7 @@ configurations.all {
 }
 
 dependencies {
+    compile project(':react-native-branch')
     implementation project(':react-native-share')
     implementation project(':react-native-view-shot')
     implementation project(':react-native-webview-bridge')
@@ -197,6 +198,14 @@ dependencies {
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.3@aar') {
         transitive = true;
     }
+
+    // required
+//    implementation 'io.branch.sdk.android:library:2.+'
+
+    // optional
+    // implementation 'com.android.support:customtabs:23.3.0' // Chrome Tab matching
+    // implementation 'com.google.android.gms:play-services-ads:9+' // GAID matching
+    // implementation 'com.google.android.gms:play-services-appindexing:9.+' // App indexing
 }
 
 // Run this once to be able to run the application with BUCK

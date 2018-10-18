@@ -24,6 +24,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		15451F35EF014A26B825D3E8 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF591A5C2CE54EF4AB6F58AB /* OpenSans-Regular.ttf */; };
+		24D3A746C0AA4D2FAE1887B1 /* branch.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE95680F6D4AAD98D4DEBB /* branch.json */; };
 		38BB6A13BA2440678B4E5C1B /* libRNReactNativeHapticFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF100953D3C4CF0B8461231 /* libRNReactNativeHapticFeedback.a */; };
 		4F814A80926647BB8A3BF9E0 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9C76C0BB8E445928CC4E328 /* OpenSans-ExtraBoldItalic.ttf */; };
 		665F4F47257147B3B8D1828E /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A30AE93A4A724E86A070C775 /* OpenSans-SemiboldItalic.ttf */; };
@@ -35,6 +36,7 @@
 		794461AAFD3E4F6B8077F2EE /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D208E23F3C44836AD43F0B3 /* OpenSans-BoldItalic.ttf */; };
 		7FB47512411240959574FCAD /* CourierNewItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 565CE9C8BFCA4229A9C9F896 /* CourierNewItalic.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		961E70F0217833EF002E2B04 /* golden.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = B44B1BBD21074CC500EE6656 /* golden.entitlements */; };
 		96A14C0621745560001E897B /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		96C8BA3319FB43F3870A21F1 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F7A61159FE49EE9E7AC2C2 /* libRNImagePicker.a */; };
 		A9E3B2EB523245C88417AC62 /* CourierNewBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED7DAC2FBAAC441E838C4884 /* CourierNewBold.ttf */; };
@@ -496,6 +498,7 @@
 		88F169A6A1CA4A6F9BFBF2AA /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		8E415F1E67F64BDBA5B7BD25 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		90BEE45DF2F640B2BE167CC0 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../App/assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		9CBE95680F6D4AAD98D4DEBB /* branch.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = branch.json; path = ../branch.json; sourceTree = "<group>"; };
 		9FC9C43CDFA04329BD39361B /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic.ttf"; path = "../App/assets/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		A30AE93A4A724E86A070C775 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiboldItalic.ttf"; path = "../App/assets/fonts/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		A4E768AD4421420F9A5416DF /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Semibold.ttf"; path = "../App/assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -665,6 +668,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				9CBE95680F6D4AAD98D4DEBB /* branch.json */,
 			);
 			name = golden;
 			sourceTree = "<group>";
@@ -1550,6 +1554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961E70F0217833EF002E2B04 /* golden.entitlements in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				EF6E8D4290FD4777B392CA48 /* CourierNew.ttf in Resources */,
@@ -1568,6 +1573,7 @@
 				08D01DE4F1F64FAC8B1D5504 /* OpenSans-Semibold.ttf in Resources */,
 				6F51FCF521344DEC00920555 /* GoldenProvider.js in Resources */,
 				665F4F47257147B3B8D1828E /* OpenSans-SemiboldItalic.ttf in Resources */,
+				24D3A746C0AA4D2FAE1887B1 /* branch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

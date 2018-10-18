@@ -6,7 +6,8 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:d247vrmn56oln2.cloudfront.net</string>
+		<string>applinks:synchroniciti.app.link</string>
+		<string>applinks:synchroniciti-alternate.app.link</string>
 	</array>
 </dict>
 </plist>

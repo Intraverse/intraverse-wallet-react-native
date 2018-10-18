@@ -17,6 +17,9 @@ import org.devio.rn.splashscreen.SplashScreen;
 
 import io.fabric.sdk.android.Fabric;
 
+import io.branch.rnbranch.*;
+import android.content.Intent;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -48,6 +51,13 @@ public class MainActivity extends ReactActivity {
             intent.setData(Uri.parse("package:" + getPackageName()));
         }
         return intent;
+    }
+
+    // Override onStart, onNewIntent:
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RNBranchModule.initSession(getIntent().getData(), this);
     }
 
     @Override
