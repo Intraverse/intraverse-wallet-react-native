@@ -26,7 +26,6 @@
 		15451F35EF014A26B825D3E8 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF591A5C2CE54EF4AB6F58AB /* OpenSans-Regular.ttf */; };
 		38BB6A13BA2440678B4E5C1B /* libRNReactNativeHapticFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF100953D3C4CF0B8461231 /* libRNReactNativeHapticFeedback.a */; };
 		4F814A80926647BB8A3BF9E0 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9C76C0BB8E445928CC4E328 /* OpenSans-ExtraBoldItalic.ttf */; };
-		5571BFE35B124D7788299170 /* libReact-Native-Webview-Bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AFE02EB1DA45278E749459 /* libReact-Native-Webview-Bridge.a */; };
 		665F4F47257147B3B8D1828E /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A30AE93A4A724E86A070C775 /* OpenSans-SemiboldItalic.ttf */; };
 		676B6E85B74942889099638A /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6F075DD8ED4E779762BD25 /* libSplashScreen.a */; };
 		6F367DF1214A6FA700A10D70 /* libRCTWKWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F367DF0214A6F8700A10D70 /* libRCTWKWebView.a */; };
@@ -568,7 +567,6 @@
 				D940A2177018428486711C6B /* libRNStoreReview.a in Frameworks */,
 				B35F9C07E3E84228BFF4B2A7 /* libTouchID.a in Frameworks */,
 				7380862556E45F59D19AE2D5 /* libPods-golden.a in Frameworks */,
-				5571BFE35B124D7788299170 /* libReact-Native-Webview-Bridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1027,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
