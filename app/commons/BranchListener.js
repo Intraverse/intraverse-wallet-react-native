@@ -34,7 +34,7 @@ class BranchListener {
       }
 
       const snd = params.snd
-      WalletReceiveStore.isInitFromNotification = true
+      WalletReceiveStore.isInitFromMessage = true
       WalletReceiveStore.setCurrentReceipt(snd)
     })
   }

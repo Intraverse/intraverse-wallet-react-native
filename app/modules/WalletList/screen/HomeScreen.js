@@ -32,6 +32,7 @@ import Router from '../../../AppStores/Router'
 import TickerStore from '../stores/TickerStore'
 import NotificationStore from '../../../AppStores/stores/Notification'
 import AppVersion from '../../../AppStores/stores/AppVersion'
+import WalletReceiveStore from '../../../modules/WalletReceive/WalletReceiveStore'
 
 const marginTop = LayoutUtils.getExtraTop()
 const { width, height } = Dimensions.get('window')
@@ -66,15 +67,19 @@ export default class HomeScreen extends Component {
         onUnlock: () => {
           TickerStore.callApi()
           MainStore.appState.startAllBgJobs()
-          if (!NotificationStore.isInitFromNotification) {
+          if (WalletReceiveStore.isInitFromMessage) {
+            WalletReceiveStore.isInitFromMessage = false
+            WalletReceiveStore.gotoReceive()
+          }
+          else if (NotificationStore.isInitFromNotification) {
+            NotificationStore.isInitFromNotification = false
+            NotificationStore.gotoTransaction()
+          } else {
             if (this.shouldShowUpdatePopup) {
               this._gotoNewUpdatedAvailableScreen()
             } else if (MainStore.appState.wallets.length === 0) {
               this._gotoCreateWallet()
             }
-          } else {
-            NotificationStore.isInitFromNotification = false
-            NotificationStore.gotoTransaction()
           }
         }
       })
