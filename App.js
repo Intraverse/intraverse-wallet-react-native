@@ -23,7 +23,7 @@ import NotificationStore from './app/AppStores/stores/Notification'
 import PushNotificationHelper from './app/commons/PushNotificationHelper'
 import AppStyle from './app/commons/AppStyle'
 import './ReactotronConfig'
-import WalletReceiveStore from './app/modules/WalletReceive/WalletReceiveStore';
+import WalletReceiveStore from './app/modules/WalletReceive/stores/WalletReceiveStore';
 
 console.ignoredYellowBox = ['Warning: isMounted']
 

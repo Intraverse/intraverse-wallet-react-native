@@ -1,5 +1,5 @@
 import branch from 'react-native-branch'
-import WalletReceiveStore from '../modules/WalletReceive/WalletReceiveStore'
+import WalletReceiveStore from '../modules/WalletReceive/stores/WalletReceiveStore'
 
 class BranchListener {
   _unsubscribeFromBranch = null

@@ -11,6 +11,7 @@ import NewUpdatedAvailableScreen from '../modules/WalletList/screen/NewUpdatedAv
 import EnraseNotifScreen from '../modules/Unlock/screen/EnraseNotifScreen'
 import DAppBrowserStack from './DAppBrowserStack'
 import AppStyle from '../commons/AppStyle'
+import WalletReceiveScreen from '../modules/WalletReceive/screen/WalletReceiveScreen';
 
 const Router = StackNavigator(
   {
@@ -78,6 +79,12 @@ const Router = StackNavigator(
     },
     DAppBrowserStack: {
       screen: DAppBrowserStack,
+      navigationOptions: {
+        header: null
+      }
+    },
+    WalletReceiveScreen: {
+      screen: WalletReceiveScreen,
       navigationOptions: {
         header: null
       }

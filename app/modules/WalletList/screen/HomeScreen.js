@@ -32,7 +32,7 @@ import Router from '../../../AppStores/Router'
 import TickerStore from '../stores/TickerStore'
 import NotificationStore from '../../../AppStores/stores/Notification'
 import AppVersion from '../../../AppStores/stores/AppVersion'
-import WalletReceiveStore from '../../../modules/WalletReceive/WalletReceiveStore'
+import WalletReceiveStore from '../../WalletReceive/stores/WalletReceiveStore'
 
 const marginTop = LayoutUtils.getExtraTop()
 const { width, height } = Dimensions.get('window')
