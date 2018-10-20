@@ -105,7 +105,7 @@ export default class WalletReceiveScreen extends Component {
             adjustsFontSizeToFit
             style={styles.attention}>You've been sent a wallet</Text>
         </View>
-        <View style={[styles.containerContent]}>
+        <View style={[styles.containerContent, { paddingBottom: 40 }]}>
           {!this.transferStore.isRefresh &&
             <Text
               numberOfLines={3}
