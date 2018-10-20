@@ -1,5 +1,5 @@
 import branch from 'react-native-branch'
-import WalletReceiveStore from '../modules/WalletReceive/stores/WalletReceiveStore'
+import TransferStore from '../AppStores/stores/TransferStore'
 
 class BranchListener {
   _unsubscribeFromBranch = null
@@ -34,8 +34,8 @@ class BranchListener {
       }
 
       const snd = params.snd
-      WalletReceiveStore.isInitFromMessage = true
-      WalletReceiveStore.setCurrentReceipt(snd)
+      TransferStore.isInitFromMessage = true
+      TransferStore.setCurrentReceipt(snd)
     })
   }
 

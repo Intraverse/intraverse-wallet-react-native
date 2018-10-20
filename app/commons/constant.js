@@ -79,6 +79,7 @@ export default {
 
   EXPORT_PRIVATE_KEY_ALERT: 'Make sure your enviroment is secure, and no one sees your screen.',
   CHANGE_NETWORK_INTRO: 'Changing network while transactions are pending may cause problems',
-  REMOVE_WALLET_DESCRIPTION: 'Please enter your wallet name to remove'
+  REMOVE_WALLET_DESCRIPTION: 'Please enter your wallet name to remove',
 
+  RECEIVE_WALLET_GO: 'Yes Please!',
 }

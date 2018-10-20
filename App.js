@@ -23,7 +23,7 @@ import NotificationStore from './app/AppStores/stores/Notification'
 import PushNotificationHelper from './app/commons/PushNotificationHelper'
 import AppStyle from './app/commons/AppStyle'
 import './ReactotronConfig'
-import WalletReceiveStore from './app/modules/WalletReceive/stores/WalletReceiveStore';
+import TransferStore from './app/AppStores/stores/TransferStore';
 
 console.ignoredYellowBox = ['Warning: isMounted']
 
@@ -98,9 +98,9 @@ export default class App extends Component {
       PushNotificationHelper.resetBadgeNumber()
       NavStore.lockScreen({
         onUnlock: () => {
-          if (WalletReceiveStore.isInitFromMessage) {
-            WalletReceiveStore.isInitFromMessage = false
-            WalletReceiveStore.gotoReceive()
+          if (TransferStore.isInitFromMessage) {
+            TransferStore.isInitFromMessage = false
+            TransferStore.gotoReceive()
           }
           else if (NotificationStore.isOpenFromTray) {
             NotificationStore.isOpenFromTray = false

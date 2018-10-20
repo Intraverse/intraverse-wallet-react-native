@@ -29,6 +29,7 @@ export default {
     apiURL: (account) => `http://api.ethplorer.io/getAddressInfo/${account}/`
   },
   Synchroniciti: {
-    coinsURL: () => 'https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/coins.json'
+    coinsURL: () => 'https://s3-ap-southeast-2.amazonaws.com/synchroniciti-wallet/coins/coins.json',
+    transferApiURL: () => 'https://m3l3dpce02.execute-api.ap-southeast-2.amazonaws.com/prod/transfers'
   }
 }

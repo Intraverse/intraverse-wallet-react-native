@@ -3,7 +3,8 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react/native'
@@ -12,11 +13,11 @@ import images from '../../../commons/images'
 import AppStyle from '../../../commons/AppStyle'
 import NavStore from '../../../AppStores/NavStore'
 import LayoutUtils from '../../../commons/LayoutUtils'
-import WalletReceiveStore from '../stores/WalletReceiveStore'
-import BottomButton from '../../../components/elements/BottomButton'
+import TransferStore from '../../../AppStores/stores/TransferStore'
+import Spinner from '../elements/Spinner'
+import constant from '../../../commons/constant'
 
 const { width, height } = Dimensions.get('window')
-const isIPX = height === 812
 const marginTop = LayoutUtils.getExtraTop()
 
 @observer
@@ -29,17 +30,13 @@ export default class WalletReceiveScreen extends Component {
     navigation: {}
   }
 
-  componentWillUnmount() {
-    const { navigation } = this.props
-    const { params } = navigation.state
-    const { notif } = WalletReceiveStore
-    if (notif && params) {
-      WalletReceiveStore.setCurrentNotif(null)
-    }
+  constructor(props) {
+    super(props)
+    this.transferStore = TransferStore
   }
 
   get selectedReceipt() {
-    return WalletReceiveStore.currentReceipt
+    return this.transferStore.currentReceipt
   }
 
   _onClose = () => NavStore.goBack()
@@ -47,6 +44,22 @@ export default class WalletReceiveScreen extends Component {
   _onPress = () => {
     NavStore.goBack()
     // NavStore.pushToScreen('BackupSecondStepScreen')
+  }
+
+  renderSendBtn() {
+    return (
+      <TouchableOpacity
+        style={styles.sendTo}
+        disabled={this.transferStore.isRefresh}
+        onPress={this._onPress}
+      >
+        <Text
+          allowFontScaling={false}
+          style={[styles.sendText, { color: !this.transferStore.isRefresh ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
+          {constant.RECEIVE_WALLET_GO}
+        </Text>
+      </TouchableOpacity>
+    )
   }
 
   render() {
@@ -63,14 +76,25 @@ export default class WalletReceiveScreen extends Component {
         />
         <View style={[styles.containerContent]}>
           <Text
-            numberOfLines={1}
+            numberOfLines={3}
             adjustsFontSizeToFit
-            style={styles.attention}>You've been sent a wallet by [] for $[]</Text>
+            style={styles.attention}>You've been sent a wallet</Text>
         </View>
-        <BottomButton
-          text="Yes Please!"
-          onPress={this._onPress}
-        />
+        <View style={[styles.containerContent]}>
+          {!this.transferStore.isRefresh &&
+            <Text
+              numberOfLines={3}
+              adjustsFontSizeToFit
+              style={styles.attention}>{this.transferStore.amount} {this.transferStore.token} tokens</Text>
+          }
+          {this.transferStore.isRefresh &&
+            <View style={[styles.containerContent]}>
+              <Text style={styles.loadingText}>loading details</Text>
+              <Spinner />
+            </View>
+          }
+        </View>
+        {this.renderSendBtn()}
       </View>
     )
   }
@@ -82,15 +106,38 @@ const styles = StyleSheet.create({
     backgroundColor: AppStyle.backgroundColor
   },
   containerContent: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
-    paddingHorizontal: 20
+    paddingHorizontal: 40,
+    paddingTop: 40
   },
   attention: {
+    color: AppStyle.mainTextColor,
+    fontSize: 30,
+    fontFamily: 'OpenSans-Bold',
+    marginTop: 20,
+    alignSelf: 'center',
+    textAlign: 'center'
+  },
+  loadingText: {
     color: AppStyle.mainTextColor,
     fontSize: 18,
     fontFamily: 'OpenSans-Bold',
     marginTop: 20,
-    alignSelf: 'center'
-  }
+    marginBottom: 20,
+    alignSelf: 'center',
+    textAlign: 'center'
+  },
+  sendText: {
+    fontSize: 18,
+    fontFamily: 'OpenSans-Semibold'
+  },
+  sendTo: {
+    margin: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: AppStyle.backgroundDarkBlue
+  },
 })
