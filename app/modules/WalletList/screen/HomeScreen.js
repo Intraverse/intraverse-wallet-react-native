@@ -67,8 +67,7 @@ export default class HomeScreen extends Component {
         onUnlock: () => {
           TickerStore.callApi()
           MainStore.appState.startAllBgJobs()
-          if (TransferStore.isInitFromMessage) {
-            TransferStore.isInitFromMessage = false
+          if (TransferStore.isReceiving) {
             TransferStore.gotoReceive()
           }
           else if (NotificationStore.isInitFromNotification) {

@@ -34,7 +34,6 @@ class BranchListener {
       }
 
       const snd = params.snd
-      TransferStore.isInitFromMessage = true
       TransferStore.setCurrentReceipt(snd)
     })
   }

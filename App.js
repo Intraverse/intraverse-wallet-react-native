@@ -98,8 +98,7 @@ export default class App extends Component {
       PushNotificationHelper.resetBadgeNumber()
       NavStore.lockScreen({
         onUnlock: () => {
-          if (TransferStore.isInitFromMessage) {
-            TransferStore.isInitFromMessage = false
+          if (TransferStore.isReceiving) {
             TransferStore.gotoReceive()
           }
           else if (NotificationStore.isOpenFromTray) {

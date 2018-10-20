@@ -3,7 +3,7 @@ import NavStore from '../NavStore'
 import API from '../../api'
 
 class TransferStore {
-  isInitFromMessage = false
+  isReceiving = false
   @observable currentReceipt = null
   @observable token = null
   @observable amount = null
@@ -11,6 +11,7 @@ class TransferStore {
 
   @action setCurrentReceipt = (rec) => {
     this.currentReceipt = rec
+    this.isReceiving = true
   }
 
   @action gotoReceive() {
