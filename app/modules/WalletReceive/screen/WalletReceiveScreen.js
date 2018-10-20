@@ -54,6 +54,7 @@ export default class WalletReceiveScreen extends Component {
           text: 'Yes',
           onClick: async () => {
             NavStore.popupCustom.hide()
+            this.transferStore.clearCurrentReceipt()
             NavStore.goBack()
           }
         }
@@ -61,8 +62,7 @@ export default class WalletReceiveScreen extends Component {
     )
   }
   _onPress = () => {
-    NavStore.goBack()
-    // NavStore.pushToScreen('BackupSecondStepScreen')
+    this.transferStore.processReceive()
   }
 
   renderOKBtn() {
@@ -96,6 +96,16 @@ export default class WalletReceiveScreen extends Component {
     )
   }
 
+  renderButtons() {
+    return (
+      !this.transferStore.isRefresh && !this.transferStore.isProcessing &&
+      <View>
+        {this.renderOKBtn()}
+        {this.renderCancelBtn()}
+      </View>
+    )
+  }
+
   render() {
     return (
       <View style={[styles.container, { marginTop: marginTop + 20 }]}>
@@ -114,13 +124,12 @@ export default class WalletReceiveScreen extends Component {
           }
           {this.transferStore.isRefresh &&
             <View style={[styles.containerContent]}>
-              <Text style={styles.loadingText}>loading details</Text>
+              <Text style={styles.loadingText}>{this.transferStore.statusMessage}</Text>
               <Spinner />
             </View>
           }
         </View>
-        {this.renderOKBtn()}
-        {this.renderCancelBtn()}
+        {this.renderButtons()}
       </View>
     )
   }

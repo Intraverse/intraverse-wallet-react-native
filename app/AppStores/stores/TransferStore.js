@@ -1,23 +1,61 @@
 import { observable, action } from 'mobx'
 import NavStore from '../NavStore'
+import MainStore from '../MainStore'
+import NotificationStore from '../stores/Notification'
 import API from '../../api'
+import Wallet from '../stores/Wallet'
+import AppStyle from '../../commons/AppStyle'
 
 class TransferStore {
   isReceiving = false
+  wallet = null
+  @observable isProcessing = false
   @observable currentReceipt = null
   @observable token = null
   @observable amount = null
   @observable isRefresh = false
+  @observable statusMessage = "processing..."
 
   @action setCurrentReceipt = (rec) => {
     this.currentReceipt = rec
     this.isReceiving = true
   }
 
+  @action clearCurrentReceipt() {
+    this.currentReceipt = null
+    this.isReceiving = false
+  }
+
   @action gotoReceive() {
     if (!this.currentReceipt) return
     NavStore.pushToScreen('WalletReceiveScreen')
     this._getTransfer()
+  }
+
+  @action processReceive() {
+    this.isProcessing = true
+    this.isRefresh = true
+    this.statusMessage = 'creating wallet...'
+    this.handleCreateWallet('new')
+
+    const ds = MainStore.secureStorage
+    const index = MainStore.appState.currentWalletIndex
+
+    Wallet.generateNew(ds, title, index).then(async (w) => {
+      this.finished = true
+      //NotificationStore.addWallet(title, w.address)
+      MainStore.appState.appWalletsStore.addOne(w)
+      MainStore.appState.autoSetSelectedWallet()
+      MainStore.appState.setCurrentWalletIndex(index + 1)
+      MainStore.appState.save()
+      MainStore.appState.selectedWallet.fetchingBalance()
+      this.wallet = w
+      this.statusMessage = 'address: ' + this.wallet.address
+
+      this.clearCurrentReceipt()
+      NavStore.goBack()
+      NavStore.showToastTop(`${title} was successfully created!`, {}, { color: AppStyle.colorUp })
+    }, ds)
   }
 
   _getTransfer() {
@@ -41,7 +79,6 @@ class TransferStore {
       this.isRefresh = false
     })
   }
-
 }
 
 export default new TransferStore()
