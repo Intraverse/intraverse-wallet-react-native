@@ -39,14 +39,33 @@ export default class WalletReceiveScreen extends Component {
     return this.transferStore.currentReceipt
   }
 
-  _onClose = () => NavStore.goBack()
+  _onClose = () => {
 
+    NavStore.popupCustom.show(
+      'Are you sure you want to decline ? You cannot undo this action',
+      [
+        {
+          text: 'No',
+          onClick: () => {
+            NavStore.popupCustom.hide()
+          }
+        },
+        {
+          text: 'Yes',
+          onClick: async () => {
+            NavStore.popupCustom.hide()
+            NavStore.goBack()
+          }
+        }
+      ]
+    )
+  }
   _onPress = () => {
     NavStore.goBack()
     // NavStore.pushToScreen('BackupSecondStepScreen')
   }
 
-  renderSendBtn() {
+  renderOKBtn() {
     return (
       <TouchableOpacity
         style={styles.sendTo}
@@ -62,18 +81,24 @@ export default class WalletReceiveScreen extends Component {
     )
   }
 
+  renderCancelBtn() {
+    return (
+      <TouchableOpacity
+        style={styles.sendTo}
+        onPress={this._onClose}
+      >
+        <Text
+          allowFontScaling={false}
+          style={[styles.sendText, { color: AppStyle.backgroundColor }]}>
+          {constant.RECEIVE_WALLET_CANCEL}
+        </Text>
+      </TouchableOpacity>
+    )
+  }
+
   render() {
     return (
       <View style={[styles.container, { marginTop: marginTop + 20 }]}>
-        <NavigationHeader
-          style={{ width }}
-          headerItem={{
-            title: 'Receive Wallet',
-            icon: null,
-            button: images.backButton
-          }}
-          action={this._onClose}
-        />
         <View style={[styles.containerContent]}>
           <Text
             numberOfLines={3}
@@ -94,7 +119,8 @@ export default class WalletReceiveScreen extends Component {
             </View>
           }
         </View>
-        {this.renderSendBtn()}
+        {this.renderOKBtn()}
+        {this.renderCancelBtn()}
       </View>
     )
   }
