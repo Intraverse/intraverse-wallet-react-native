@@ -91,6 +91,16 @@ https://github.com/infinitered/reactotron/blob/master/docs/installing.md
 
 ## Testing
 
+### Wallet Send 
+
+Android:
+
+	adb shell am start -a android.intent.action.VIEW -d "https://synchroniciti.app.link/bbT9EXtw6Q?snd=NndHc4_CJJ3MtB-ZkPFg9w"
+
+iOS:
+
+	xcrun simctl openurl booted "https://synchroniciti.app.link/bbT9EXtw6Q?snd=NndHc4_CJJ3MtB-ZkPFg9w"
+	
 ### Release Build
 
 It's a good idea to check the release build runs.
