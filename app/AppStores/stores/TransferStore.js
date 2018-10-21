@@ -28,6 +28,8 @@ class TransferStore {
 
   @action gotoReceive() {
     if (!this.currentReceipt) return
+    this.isProcessing = false
+    this.isRefresh = false
     NavStore.pushToScreen('WalletReceiveScreen')
     this._getTransfer()
   }
@@ -36,10 +38,10 @@ class TransferStore {
     this.isProcessing = true
     this.isRefresh = true
     this.statusMessage = 'creating wallet...'
-    this.handleCreateWallet('new')
 
     const ds = MainStore.secureStorage
     const index = MainStore.appState.currentWalletIndex
+    const title = 'New'
 
     Wallet.generateNew(ds, title, index).then(async (w) => {
       this.finished = true
@@ -52,9 +54,11 @@ class TransferStore {
       this.wallet = w
       this.statusMessage = 'address: ' + this.wallet.address
 
-      this.clearCurrentReceipt()
-      NavStore.goBack()
-      NavStore.showToastTop(`${title} was successfully created!`, {}, { color: AppStyle.colorUp })
+      API.putWalletTransferReceiver(this.currentReceipt, this.wallet.address).then((res) => {
+        this.clearCurrentReceipt()
+        NavStore.goBack()
+        NavStore.showToastTop(`Wallet "${title}" created, awaiting transfer!`, {}, { color: AppStyle.colorUp })
+      })
     }, ds)
   }
 
