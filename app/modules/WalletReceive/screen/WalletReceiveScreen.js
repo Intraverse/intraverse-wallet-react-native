@@ -2,22 +2,18 @@ import React, { Component } from 'react'
 import {
   View,
   StyleSheet,
-  Dimensions,
   Text,
   TouchableOpacity
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react/native'
-import NavigationHeader from '../../../components/elements/NavigationHeader'
-import images from '../../../commons/images'
 import AppStyle from '../../../commons/AppStyle'
 import NavStore from '../../../AppStores/NavStore'
 import LayoutUtils from '../../../commons/LayoutUtils'
 import TransferStore from '../../../AppStores/stores/TransferStore'
-import Spinner from '../elements/Spinner'
+import LittleSpinner from '../../../components/elements/LittleSpinner'
 import constant from '../../../commons/constant'
 
-const { width, height } = Dimensions.get('window')
 const marginTop = LayoutUtils.getExtraTop()
 
 @observer
@@ -125,7 +121,7 @@ export default class WalletReceiveScreen extends Component {
           {this.transferStore.isRefresh &&
             <View style={[styles.containerContent]}>
               <Text style={styles.loadingText}>{this.transferStore.statusMessage}</Text>
-              <Spinner />
+              <LittleSpinner />
             </View>
           }
         </View>

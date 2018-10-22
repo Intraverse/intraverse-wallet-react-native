@@ -14,7 +14,6 @@ import AppStyle from '../../../commons/AppStyle'
 import NavStore from '../../../AppStores/NavStore'
 
 const marginTop = LayoutUtils.getExtraTop()
-const { width } = Dimensions.get('window')
 const contentWallet = 'Send a wallet to a person by txt or email.'
 const contentAddress = 'Scan or enter a wallet address to send to.'
 
@@ -25,7 +24,7 @@ export default class RecipientTypeScreen extends Component {
     }
 
     gotoSendWallet = () => {
-        NavStore.pushToScreen('WalletSendScreen')
+        NavStore.pushToScreen('SendWalletConfirmScreen')
     }
 
     gotoPublicAddress = () => {
@@ -46,7 +45,7 @@ export default class RecipientTypeScreen extends Component {
                 />
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <SmallCard
-                        style={{ height: 174, marginTop: 20 }}
+                        style={{ height: 174 }}
                         title="Person"
                         subtitle={contentWallet}
                         imageCard={images.iconPrivateKey}

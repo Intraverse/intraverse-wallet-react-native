@@ -5,10 +5,10 @@ import {
 } from 'react-native'
 
 import { observer } from 'mobx-react/native'
-import images from '../../../commons/images'
+import images from '../../commons/images'
 
 @observer
-export default class Spinner extends Component {
+export default class LittleSpinner extends Component {
   static propTypes = {
 
   }
