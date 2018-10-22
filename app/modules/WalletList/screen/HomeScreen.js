@@ -91,7 +91,9 @@ export default class HomeScreen extends Component {
       return
     }
     Router.SendTransaction.goToSendTx()
-    MainStore.appState.setselectedToken(selectedWallet.tokens[0])
+    if (selectedWallet.tokens && selectedWallet.tokens.length > 0) {
+      MainStore.appState.setselectedToken(selectedWallet.tokens[0])
+    }
     MainStore.sendTransaction.changeIsToken(false)
   }
 
