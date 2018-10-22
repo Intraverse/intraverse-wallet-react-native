@@ -18,6 +18,7 @@ import commonStyle from '../../../commons/commonStyles'
 import NavigationHeader from '../../../components/elements/NavigationHeader'
 import constant from '../../../commons/constant'
 import images from '../../../commons/images'
+import { STEP_FAILED } from '../stores/SendWalletConfirmStore'
 
 const marginTop = LayoutUtils.getExtraTop()
 
@@ -33,11 +34,19 @@ export default class SendWalletConfirmScreen extends Component {
 
   constructor(props) {
     super(props)
-    this.confirmStore = MainStore.sendTransaction.sendWalletConfirmStore
+    this.sendStore = MainStore.sendTransaction
+    this.confirmStore = this.sendStore.sendWalletConfirmStore
+    this.amountStore = this.sendStore.amountStore
+  }
+
+  _doSend() {
+    const token = this.sendStore.isToken ? MainStore.appState.selectedToken.symbol : 'ETH'
+    const amount = this.amountStore.amountTextString
+    this.confirmStore.processSend(token, amount)
   }
 
   componentDidMount() {
-    this.confirmStore.processSend()
+    this._doSend()
   }
 
   _onClose = () => {
@@ -59,6 +68,10 @@ export default class SendWalletConfirmScreen extends Component {
           'com.apple.UIKit.activity.PostToTwitter'
         ]
       })
+  }
+
+  _onRetry = () => {
+    this._doSend()
   }
 
   goBack = () => {
@@ -97,6 +110,22 @@ export default class SendWalletConfirmScreen extends Component {
     )
   }
 
+  renderRetryBtn() {
+    return (
+      <TouchableOpacity
+        style={styles.sendTo}
+        disabled={this.confirmStore.isProcessing}
+        onPress={this._onRetry}
+      >
+        <Text
+          allowFontScaling={false}
+          style={[styles.sendText, { color: !this.confirmStore.isProcessing ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
+          Retry
+        </Text>
+      </TouchableOpacity>
+    )
+  }
+
   renderShare() {
     return (
       this.confirmStore.step == 1 &&
@@ -110,7 +139,7 @@ export default class SendWalletConfirmScreen extends Component {
             selectable={true}
             style={[styles.link, commonStyle.fontAddress]}>{this.confirmStore.sendURL}</Text>
           <LittleSpinner />
-          <Text style={styles.waiting}>Waiting for recipient...</Text>
+          <Text style={[styles.waiting, { marginTop: 20, marginBottom: 20 }]}>Waiting for recipient...</Text>
         </View>
         <View>
           {this.renderShareBtn()}
@@ -119,7 +148,31 @@ export default class SendWalletConfirmScreen extends Component {
     )
   }
 
-  renderButtons() {
+  renderRetry() {
+    return (
+      this.confirmStore.step == STEP_FAILED &&
+      <View>
+        <View style={[styles.containerContent]}>
+          <Text
+            style={[styles.attention, { marginBottom: 40 }]}>Processing failed</Text>
+        </View>
+        <View>
+          {this.renderRetryBtn()}
+        </View>
+      </View >
+    )
+  }
+
+  renderProcessing() {
+    return (
+      this.confirmStore.isProcessing &&
+      <View style={[styles.containerContent]}>
+        <LittleSpinner />
+      </View>
+    )
+  }
+
+  renderClose() {
     return (
       !this.confirmStore.isProcessing &&
       <View>
@@ -147,7 +200,9 @@ export default class SendWalletConfirmScreen extends Component {
             style={styles.attention}>Send Wallet</Text>
         </View>
         {this.renderShare()}
-        {this.renderButtons()}
+        {this.renderRetry()}
+        {this.renderProcessing()}
+        {this.renderClose()}
       </View>
     )
   }
