@@ -211,7 +211,7 @@ export default class SendWalletConfirmScreen extends Component {
           headerItem={{
             title: constant.RECIPIENT_WALLET,
             icon: null,
-            button: images.closeButton
+            button: images.backButton
           }}
           action={this.goBack}
         />

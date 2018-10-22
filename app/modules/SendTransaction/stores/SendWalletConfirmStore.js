@@ -1,5 +1,7 @@
 import { observable, action } from 'mobx'
 import API from '../../../api'
+import MainStore from '../../../AppStores/MainStore'
+import NavStore from '../../../AppStores/NavStore'
 
 export const STEP_FAILED = -1
 export const STEP_CREATE = 0
@@ -39,13 +41,23 @@ export default class SendWalletConfirmStore {
       })
   }
 
+  setAddress(address) {
+    const { addressInputStore } = MainStore.sendTransaction
+    if (address) {
+      addressInputStore.setAddress(address)
+      addressInputStore.validateAddress()
+    }
+  }
+
   checkResponse() {
     API.getWalletTransferReceiver(this.transferId)
       .then((res) => {
         this.stop()
         if (res.status === 200 && res.data && res.data.toAddress) {
           this.toAddress = res.data.toAddress
+          this.setAddress(this.toAddress)
           this.step = STEP_TRANSFER
+          NavStore.pushToScreen('ConfirmScreen')
           return
         }
         this.startCheckingResponse()
