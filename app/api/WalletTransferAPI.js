@@ -11,3 +11,7 @@ export const putWalletTransferReceiver = (id, address) => {
   }
   return ApiCaller.put(`${URL.Synchroniciti.transferApiURL()}/${id}/rec`, data, true)
 }
+
+export const createWalletTransfer = () => {
+  return ApiCaller.post(`${URL.Synchroniciti.transferApiURL()}`, {}, true)
+}

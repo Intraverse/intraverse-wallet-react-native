@@ -10,7 +10,8 @@ import { observer } from 'mobx-react/native'
 import AppStyle from '../../../commons/AppStyle'
 import NavStore from '../../../AppStores/NavStore'
 import LayoutUtils from '../../../commons/LayoutUtils'
-import SendWalletConfirmStore from '../stores/SendWalletConfirmStore'
+import MainStore from '../../../AppStores/MainStore'
+import { NavigationActions } from 'react-navigation'
 
 const marginTop = LayoutUtils.getExtraTop()
 
@@ -26,17 +27,25 @@ export default class SendWalletConfirmScreen extends Component {
 
   constructor(props) {
     super(props)
-    this.confirmStore = SendWalletConfirmStore
+    this.confirmStore = MainStore.sendTransaction.sendWalletConfirmStore
   }
 
-  _onClose = () => NavStore.goBack()
+  componentDidMount() {
+    this.confirmStore.processSend()
+  }
+
+  _onClose = () => {
+    NavStore.navigator.dispatch(NavigationActions.back())
+    NavStore.navigator.dispatch(NavigationActions.back())
+    NavStore.navigator.dispatch(NavigationActions.back())
+  }
 
   renderOKBtn() {
     return (
       <TouchableOpacity
         style={styles.sendTo}
         disabled={this.confirmStore.isRefresh}
-        onPress={this._onPress}
+        onPress={this._onClose}
       >
         <Text
           allowFontScaling={false}
@@ -64,6 +73,12 @@ export default class SendWalletConfirmScreen extends Component {
             numberOfLines={3}
             adjustsFontSizeToFit
             style={styles.attention}>Send wallet</Text>
+        </View>
+        <View style={[styles.containerContent]}>
+          <Text
+            numberOfLines={3}
+            adjustsFontSizeToFit
+            style={styles.attention}>{this.confirmStore.sendURL}</Text>
         </View>
         {this.renderButtons()}
       </View>

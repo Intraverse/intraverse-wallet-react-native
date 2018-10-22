@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 import NavStore from '../NavStore'
 import MainStore from '../MainStore'
-import NotificationStore from '../stores/Notification'
+// import NotificationStore from '../stores/Notification'
 import API from '../../api'
 import Wallet from '../stores/Wallet'
 import AppStyle from '../../commons/AppStyle'

@@ -12,6 +12,7 @@ import HapticHandler from '../../../Handler/HapticHandler'
 import AppStyle from '../../../commons/AppStyle'
 import { sendTransaction } from '../../../api/ether-json-rpc'
 import Interface from '../../../Utils/Ethererum/Contract/interface'
+import SendWalletConfirmStore from './SendWalletConfirmStore'
 
 const BN = require('bn.js')
 
@@ -20,6 +21,7 @@ class SendStore {
   amountStore = null
   addressInputStore = null
   confirmStore = null
+  sendWalletConfirmStore = null
 
   @observable transaction = {
     gasLimit: new BN('21000'),
@@ -31,6 +33,7 @@ class SendStore {
     this.addressInputStore = new AddressInputStore()
     this.confirmStore = new ConfirmStore()
     this.advanceStore = new AdvanceStore()
+    this.sendWalletConfirmStore = new SendWalletConfirmStore()
   }
 
   @computed get address() {
