@@ -53,7 +53,7 @@ export default class SendTransactionScreen extends Component {
   }
 
   _onSendPress = () => {
-    this.props.navigation.navigate('AddressInputScreen')
+    this.props.navigation.navigate('RecipientTypeScreen')
     this.amountStore.send()
   }
 

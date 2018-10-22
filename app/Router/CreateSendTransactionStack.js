@@ -4,6 +4,7 @@ import AddressInputScreen from '../modules/SendTransaction/screen/AddressInputSc
 import ScanQRCodeScreen from '../modules/ScanQRCode'
 import ConfirmScreen from '../modules/SendTransaction/screen/ConfirmScreen'
 import AppStyle from '../commons/AppStyle'
+import RecipientTypeScreen from '../modules/SendTransaction/screen/RecipientTypeScreen'
 
 const CreateSendTransactionStack = StackNavigator(
   {
@@ -27,6 +28,12 @@ const CreateSendTransactionStack = StackNavigator(
     },
     ConfirmScreen: {
       screen: ConfirmScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    RecipientTypeScreen: {
+      screen: RecipientTypeScreen,
       navigationOptions: {
         header: null
       }

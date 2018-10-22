@@ -82,5 +82,6 @@ export default {
   REMOVE_WALLET_DESCRIPTION: 'Please enter your wallet name to remove',
 
   RECEIVE_WALLET_GO: 'Yes Please!',
-  RECEIVE_WALLET_CANCEL: 'No thanks'
+  RECEIVE_WALLET_CANCEL: 'No thanks',
+  RECIPIENT_TYPE: 'Type of recipient'
 }

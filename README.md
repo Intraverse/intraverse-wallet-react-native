@@ -78,8 +78,7 @@ Update authentication details for the key store:
 
 Create APK:
 
-	cd android
-	./gradlew assembleRelease
+	cd android && ./gradlew assembleRelease
 
 ## Debugging
 
