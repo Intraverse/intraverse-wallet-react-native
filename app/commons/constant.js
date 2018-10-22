@@ -83,5 +83,6 @@ export default {
 
   RECEIVE_WALLET_GO: 'Yes Please!',
   RECEIVE_WALLET_CANCEL: 'No thanks',
-  RECIPIENT_TYPE: 'Type of recipient'
+  RECIPIENT_TYPE: 'Type of recipient',
+  RECIPIENT_WALLET: 'Wallet recipient'
 }

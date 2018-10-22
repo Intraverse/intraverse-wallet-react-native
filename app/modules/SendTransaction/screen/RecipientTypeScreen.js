@@ -45,7 +45,7 @@ export default class RecipientTypeScreen extends Component {
                 />
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <SmallCard
-                        style={{ height: 174 }}
+                        style={{ marginBottom: 40, height: 174 }}
                         title="Person"
                         subtitle={contentWallet}
                         imageCard={images.iconPrivateKey}
@@ -58,7 +58,7 @@ export default class RecipientTypeScreen extends Component {
                     />
 
                     <SmallCard
-                        style={{ marginTop: 20, marginBottom: 20, height: 174 }}
+                        style={{ marginBottom: 20, height: 174 }}
                         title="Address"
                         subtitle={contentAddress}
                         imageCard={images.iconAddress}
