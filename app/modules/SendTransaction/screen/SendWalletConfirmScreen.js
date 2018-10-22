@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   },
   link: {
     color: AppStyle.secondaryTextColor,
-    fontSize: 40,
+    fontSize: 14,
     fontFamily: 'OpenSans-Bold',
     marginTop: 30,
     marginBottom: 30,

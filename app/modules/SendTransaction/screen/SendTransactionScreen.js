@@ -65,15 +65,10 @@ export default class SendTransactionScreen extends Component {
     this.amountStore.selectedCoinModal && this.amountStore.selectedCoinModal.close()
   }
 
-  componentDidMount() {
-    this.timer = setTimeout(() => {
-      this._onOpenModal()
-    }, 10);
-  }
-
   renderSelectedCoinModal = () => {
     return (
       <Modal
+        isOpen={true}
         style={styles.modalStyle}
         swipeToClose
         onClosed={this._onCloseModal}
