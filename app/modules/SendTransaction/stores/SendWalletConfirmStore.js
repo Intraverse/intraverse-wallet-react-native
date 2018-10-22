@@ -32,7 +32,6 @@ export default class SendWalletConfirmStore {
         this.sendURL = `https://synchroniciti.app.link/bbT9EXtw6Q?snd=${this.transferId}`
         this.isProcessing = false
         this.step = STEP_SEND
-
         this.startCheckingResponse()
       })
       .catch(() => {
