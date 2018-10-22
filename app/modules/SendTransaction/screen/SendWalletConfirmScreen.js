@@ -18,7 +18,7 @@ import commonStyle from '../../../commons/commonStyles'
 import NavigationHeader from '../../../components/elements/NavigationHeader'
 import constant from '../../../commons/constant'
 import images from '../../../commons/images'
-import { STEP_FAILED } from '../stores/SendWalletConfirmStore'
+import { STEP_FAILED, STEP_SEND, STEP_TRANSFER } from '../stores/SendWalletConfirmStore'
 
 const marginTop = LayoutUtils.getExtraTop()
 
@@ -128,7 +128,7 @@ export default class SendWalletConfirmScreen extends Component {
 
   renderShare() {
     return (
-      this.confirmStore.step == 1 &&
+      this.confirmStore.step == STEP_SEND &&
       <View>
         <View style={[styles.containerContent]}>
           <Text
@@ -140,6 +140,28 @@ export default class SendWalletConfirmScreen extends Component {
             style={[styles.link, commonStyle.fontAddress]}>{this.confirmStore.sendURL}</Text>
           <LittleSpinner />
           <Text style={[styles.waiting, { marginTop: 20, marginBottom: 20 }]}>Waiting for recipient...</Text>
+        </View>
+        <View>
+          {this.renderShareBtn()}
+        </View>
+      </View >
+    )
+  }
+
+  renderTransfer() {
+    return (
+      this.confirmStore.step == STEP_TRANSFER &&
+      <View>
+        <View style={[styles.containerContent]}>
+          <Text
+            style={styles.waiting}>Recipient's address received.</Text>
+          <Text
+            numberOfLines={3}
+            adjustsFontSizeToFit
+            selectable={true}
+            style={[styles.link, commonStyle.fontAddress]}>{this.confirmStore.toAddress}</Text>
+          <LittleSpinner />
+          <Text style={[styles.waiting, { marginTop: 20, marginBottom: 20 }]}>Starting transfer...</Text>
         </View>
         <View>
           {this.renderShareBtn()}
@@ -201,6 +223,7 @@ export default class SendWalletConfirmScreen extends Component {
         </View>
         {this.renderShare()}
         {this.renderRetry()}
+        {this.renderTransfer()}
         {this.renderProcessing()}
         {this.renderClose()}
       </View>
