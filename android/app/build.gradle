@@ -109,8 +109,8 @@ android {
         applicationId "com.intraversetech.gwallet"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 8
-        versionName "0.4"
+        versionCode 9
+        versionName "0.5"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

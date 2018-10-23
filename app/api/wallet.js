@@ -151,6 +151,12 @@ export const changelogsList = () => {
     "data": {
       "data": [
         {
+          "version_number": "0.5",
+          "is_release": true,
+          "change_logs": "Support for sending wallet by link",
+          "created_at": "2018-10-24T18:48:43.878Z"
+        },
+        {
           "version_number": "0.4",
           "is_release": true,
           "change_logs": "Support iOS dynamic fonts\r\nFix: send by $ value",
