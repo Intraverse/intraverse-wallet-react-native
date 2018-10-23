@@ -14,8 +14,10 @@ import AppStyle from '../../../commons/AppStyle'
 import NavStore from '../../../AppStores/NavStore'
 
 const marginTop = LayoutUtils.getExtraTop()
-const contentWallet = 'Send a wallet to a person by txt or email.'
-const contentAddress = 'Scan or enter a wallet address to send to.'
+const contentWallet = 'Send a wallet by sharing a link in text, email or other'
+const contentAddress = 'Scan or enter a wallet address to send to'
+
+const { width } = Dimensions.get('window')
 
 @observer
 export default class RecipientTypeScreen extends Component {
@@ -35,37 +37,41 @@ export default class RecipientTypeScreen extends Component {
         return (
             <View style={styles.container}>
                 <NavigationHeader
-                    style={{ marginTop: marginTop + 20 }}
+                    style={{ marginTop: marginTop + 20, width }}
                     headerItem={{
                         title: constant.RECIPIENT_TYPE,
                         icon: null,
-                        button: images.closeButton
+                        button: images.backButton
                     }}
                     action={this.goBack}
                 />
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <SmallCard
                         style={{ marginBottom: 40, height: 174 }}
-                        title="Person"
+                        title="Link"
                         subtitle={contentWallet}
                         imageCard={images.iconPrivateKey}
                         onPress={this.gotoSendWallet}
                         imageBackgroundStyle={{ height: 174 }}
                         titleTextStyle={{ color: AppStyle.mainColor }}
                         subtitleTextStyle={{
-                            color: AppStyle.secondaryTextColor, marginTop: 10
+                            color: AppStyle.secondaryTextColor,
+                            marginTop: 10,
+                            fontSize: 18
                         }}
                     />
 
                     <SmallCard
                         style={{ marginBottom: 20, height: 174 }}
-                        title="Address"
+                        title="Ethereum Address"
                         subtitle={contentAddress}
                         imageCard={images.iconAddress}
                         onPress={this.gotoPublicAddress}
                         titleTextStyle={{ color: AppStyle.mainTextColor }}
                         subtitleTextStyle={{
-                            color: AppStyle.secondaryTextColor, marginTop: 10
+                            color: AppStyle.secondaryTextColor,
+                            marginTop: 10,
+                            fontSize: 18
                         }}
                     />
                 </View>

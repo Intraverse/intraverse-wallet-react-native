@@ -3,7 +3,9 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions,
+  Platform
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react/native'
@@ -21,6 +23,8 @@ import images from '../../../commons/images'
 import { STEP_FAILED, STEP_SEND, STEP_TRANSFER } from '../stores/SendWalletConfirmStore'
 
 const marginTop = LayoutUtils.getExtraTop()
+const { width, height } = Dimensions.get('window')
+const isSmallScreen = height < 569
 
 @observer
 export default class SendWalletConfirmScreen extends Component {
@@ -78,22 +82,6 @@ export default class SendWalletConfirmScreen extends Component {
     NavStore.goBack()
   }
 
-  renderShareBtn() {
-    return (
-      <TouchableOpacity
-        style={styles.sendTo}
-        disabled={this.confirmStore.isProcessing}
-        onPress={this._onShare}
-      >
-        <Text
-          allowFontScaling={false}
-          style={[styles.sendText, { color: !this.confirmStore.isProcessing ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
-          Share
-        </Text>
-      </TouchableOpacity>
-    )
-  }
-
   renderCloseBtn() {
     return (
       <TouchableOpacity
@@ -126,23 +114,52 @@ export default class SendWalletConfirmScreen extends Component {
     )
   }
 
+  renderShareBtn() {
+    const shareText = Platform.OS === 'ios'
+      ? (
+        <View style={styles.backgroundCopy}>
+          <Text
+            allowFontScaling={false}
+            style={styles.copyButton}>
+            {constant.SHARE}
+          </Text>
+        </View>
+      )
+      : (
+        <Text
+          style={[
+            styles.copyButton, styles.backgroundCopy
+          ]}
+        >
+          {constant.SHARE}
+        </Text>
+      )
+    return (
+      <TouchableOpacity
+        disabled={this.confirmStore.isProcessing}
+        onPress={this._onShare}
+      >
+        {shareText}
+      </TouchableOpacity>
+    )
+  }
+
   renderShare() {
     return (
       this.confirmStore.step == STEP_SEND &&
       <View>
         <View style={[styles.containerContent]}>
           <Text
-            style={styles.waiting}>Send the following link to the recipient and ask them to click on it. Once done the tokens can be transferred.</Text>
+            style={styles.title}>Send the following link to the recipient and ask them to click on it to commence transfer
+          </Text>
           <Text
             numberOfLines={3}
             adjustsFontSizeToFit
             selectable={true}
             style={[styles.link, commonStyle.fontAddress]}>{this.confirmStore.sendURL}</Text>
-          <LittleSpinner />
-          <Text style={[styles.waiting, { marginTop: 20, marginBottom: 20 }]}>Waiting for recipient...</Text>
-        </View>
-        <View>
           {this.renderShareBtn()}
+          <LittleSpinner />
+          <Text style={[styles.waiting, { marginTop: 10, marginBottom: 20 }]}>Waiting for recipient...</Text>
         </View>
       </View >
     )
@@ -162,9 +179,6 @@ export default class SendWalletConfirmScreen extends Component {
             style={[styles.link, commonStyle.fontAddress]}>{this.confirmStore.toAddress}</Text>
           <LittleSpinner />
           <Text style={[styles.waiting, { marginTop: 20, marginBottom: 20 }]}>Starting transfer...</Text>
-        </View>
-        <View>
-          {this.renderShareBtn()}
         </View>
       </View >
     )
@@ -205,9 +219,9 @@ export default class SendWalletConfirmScreen extends Component {
 
   render() {
     return (
-      <View style={[styles.container]}>
+      <View style={[styles.container, { backgroundColor: 'white' }]}>
         <NavigationHeader
-          style={{ marginTop: marginTop + 20 }}
+          style={{ marginTop: marginTop + 20, width }}
           headerItem={{
             title: constant.RECIPIENT_WALLET,
             icon: null,
@@ -215,12 +229,6 @@ export default class SendWalletConfirmScreen extends Component {
           }}
           action={this.goBack}
         />
-        <View style={[styles.containerContent]}>
-          <Text
-            numberOfLines={3}
-            adjustsFontSizeToFit
-            style={styles.attention}>Send Wallet</Text>
-        </View>
         {this.renderShare()}
         {this.renderRetry()}
         {this.renderTransfer()}
@@ -252,10 +260,17 @@ const styles = StyleSheet.create({
   },
   link: {
     color: AppStyle.secondaryTextColor,
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: 'OpenSans-Bold',
     marginTop: 30,
     marginBottom: 30,
+    alignSelf: 'center',
+    textAlign: 'center'
+  },
+  title: {
+    color: AppStyle.mainTextColor,
+    fontSize: 20,
+    fontFamily: 'OpenSans-Bold',
     alignSelf: 'center',
     textAlign: 'center'
   },
@@ -279,4 +294,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: AppStyle.backgroundDarkBlue
   },
+  copyButton: {
+    fontFamily: 'OpenSans-Bold',
+    fontSize: isSmallScreen ? 10 : 14,
+    color: AppStyle.mainColor
+  },
+  backgroundCopy: {
+    backgroundColor: AppStyle.secondaryButtonBackgroundColor,
+    paddingHorizontal: isSmallScreen ? 15 : 26,
+    paddingVertical: isSmallScreen ? 4 : 7,
+    borderRadius: 16,
+    marginBottom: 30
+  }
 })
