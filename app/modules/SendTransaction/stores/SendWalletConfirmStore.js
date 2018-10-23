@@ -2,6 +2,7 @@ import { observable, action } from 'mobx'
 import API from '../../../api'
 import MainStore from '../../../AppStores/MainStore'
 import NavStore from '../../../AppStores/NavStore'
+import branch from 'react-native-branch'
 
 export const STEP_FAILED = -1
 export const STEP_CREATE = 0
@@ -17,27 +18,52 @@ export default class SendWalletConfirmStore {
   @observable step = STEP_CREATE
   @observable toAddress = null
 
-  @action processSend(token, amount) {
+  async getLink() {
+
+    buo = await branch.createBranchUniversalObject("walletSend", {
+      locallyIndex: true
+    })
+
+    let linkProperties = {
+      feature: 'share',
+      channel: 'Wallet',
+      campaign: 'SendWallet'
+    }
+
+    let controlParams = {
+      $desktop_url: 'https://synchroniciti.com'
+    }
+
+    let { url } = await buo.generateShortUrl(linkProperties, controlParams)
+
+    buo.release()
+
+    return `${url}?snd=${this.transferId}`
+  }
+
+  @action async processSend(token, amount) {
     if (this.isProcessing) return
 
     this.isProcessing = true
-    API.createWalletTransfer(token, amount, 'MyNewWallet')
-      .then((res) => {
-        if (res.status !== 201) {
-          this.isProcessing = false
-          this.step = STEP_FAILED
-          return
-        }
-        this.transferId = res.data.TransferId
-        this.sendURL = `https://synchroniciti.app.link/bbT9EXtw6Q?snd=${this.transferId}`
-        this.isProcessing = false
-        this.step = STEP_SEND
-        this.startCheckingResponse()
-      })
-      .catch(() => {
+
+    try {
+      res = await API.createWalletTransfer(token, amount, 'MyNewWallet')
+
+      if (res.status !== 201) {
         this.isProcessing = false
         this.step = STEP_FAILED
-      })
+        return
+      }
+      this.transferId = res.data.TransferId
+      this.sendURL = await this.getLink()
+      this.isProcessing = false
+      this.step = STEP_SEND
+      this.startCheckingResponse()
+    }
+    catch (error) {
+      this.isProcessing = false
+      this.step = STEP_FAILED
+    }
   }
 
   setAddress(address) {

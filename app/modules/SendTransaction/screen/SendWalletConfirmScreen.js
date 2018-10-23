@@ -62,7 +62,6 @@ export default class SendWalletConfirmScreen extends Component {
   _onShare = () => {
     Share.share({
       message: this.confirmStore.sendURL,
-      url: this.confirmStore.sendURL,
       title: "I'm sending you a wallet"
     }, {
         // Android only:
