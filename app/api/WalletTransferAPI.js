@@ -1,10 +1,11 @@
 import ApiCaller from './api-caller'
 import URL from './url'
 
-export const createWalletTransfer = (token, amount) => {
+export const createWalletTransfer = (token, amount, walletName) => {
   return ApiCaller.post(`${URL.Synchroniciti.transferApiURL()}`, {
     'Token': token,
-    'Amount': amount
+    'Amount': amount,
+    'WalletName': walletName
   }, true)
 }
 

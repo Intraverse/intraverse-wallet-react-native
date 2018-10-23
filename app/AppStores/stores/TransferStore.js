@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import NavStore from '../NavStore'
 import MainStore from '../MainStore'
 // import NotificationStore from '../stores/Notification'
@@ -13,6 +13,7 @@ class TransferStore {
   @observable currentReceipt = null
   @observable token = null
   @observable amount = null
+  @observable walletName = null
   @observable isRefresh = false
   @observable statusMessage = "processing..."
 
@@ -34,6 +35,15 @@ class TransferStore {
     this._getTransfer()
   }
 
+  @computed get titleMap() {
+    const { wallets } = MainStore.appState
+    return wallets.reduce((rs, w) => {
+      const result = rs
+      result[w.title] = 1
+      return result
+    }, {})
+  }
+
   @action processReceive() {
     this.isProcessing = true
     this.isRefresh = true
@@ -41,7 +51,13 @@ class TransferStore {
 
     const ds = MainStore.secureStorage
     const index = MainStore.appState.currentWalletIndex
-    const title = 'New'
+    let title = this.walletName
+    var num = 0
+
+    while (this.titleMap[title]) {
+      num = num + 1
+      title = `${this.walletName}${num}`
+    }
 
     Wallet.generateNew(ds, title, index).then(async (w) => {
       this.finished = true
@@ -76,6 +92,7 @@ class TransferStore {
 
         this.token = data.token
         this.amount = data.amount
+        this.walletName = data.walletName
       }
       this.isRefresh = false
       return res.data

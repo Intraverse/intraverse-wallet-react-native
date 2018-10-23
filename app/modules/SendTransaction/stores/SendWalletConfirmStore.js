@@ -21,7 +21,7 @@ export default class SendWalletConfirmStore {
     if (this.isProcessing) return
 
     this.isProcessing = true
-    API.createWalletTransfer(token, amount)
+    API.createWalletTransfer(token, amount, 'MyNewWallet')
       .then((res) => {
         if (res.status !== 201) {
           this.isProcessing = false
