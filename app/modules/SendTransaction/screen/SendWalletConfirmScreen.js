@@ -150,7 +150,7 @@ export default class SendWalletConfirmScreen extends Component {
         <View style={[styles.containerContent]}>
           <Text
             allowFontScaling={false}
-            style={styles.title}>Send the following link to the recipient and ask them to click on it to commence transfer</Text>
+            style={styles.title}>Share the following link with the recipient. They must click it to enable transfer.</Text>
           <Text
             numberOfLines={3}
             adjustsFontSizeToFit
@@ -202,6 +202,8 @@ export default class SendWalletConfirmScreen extends Component {
     return (
       this.confirmStore.isProcessing &&
       <View style={[styles.containerContent]}>
+        <Text
+          style={[styles.waiting, { marginBottom: 40 }]}>Generating link...</Text>
         <LittleSpinner />
       </View>
     )
@@ -228,10 +230,10 @@ export default class SendWalletConfirmScreen extends Component {
           }}
           action={this.goBack}
         />
+        {this.renderProcessing()}
         {this.renderShare()}
         {this.renderRetry()}
         {this.renderTransfer()}
-        {this.renderProcessing()}
         {this.renderClose()}
       </View>
     )
