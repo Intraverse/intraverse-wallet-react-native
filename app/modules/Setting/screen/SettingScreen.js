@@ -145,7 +145,7 @@ export default class SettingScreen extends Component {
           /> */}
           {/* {this.renderCommunity()} */}
           {this.renderSecurity()}
-          {this.renderAppSetting()}
+          {__DEV__ === false && this.renderAppSetting()}
           {this.renderAbount()}
         </View>
       </ScrollView >
