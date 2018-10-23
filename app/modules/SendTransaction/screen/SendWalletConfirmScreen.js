@@ -150,8 +150,8 @@ export default class SendWalletConfirmScreen extends Component {
       <View>
         <View style={[styles.containerContent]}>
           <Text
-            style={styles.title}>Send the following link to the recipient and ask them to click on it to commence transfer
-          </Text>
+            allowFontScaling={false}
+            style={styles.title}>Send the following link to the recipient and ask them to click on it to commence transfer</Text>
           <Text
             numberOfLines={3}
             adjustsFontSizeToFit
