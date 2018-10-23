@@ -11,6 +11,8 @@ class BranchListener {
         return
       }
 
+      console.log(`Branch link received with params ${JSON.stringify(params)}`)
+
       // params will never be null if error is null
 
       if (params['+non_branch_link']) {

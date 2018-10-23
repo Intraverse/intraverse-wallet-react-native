@@ -7,13 +7,13 @@
 
 #import "AppDelegate.h"
 
+#import <react-native-branch/RNBranch.h> // at the top
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "RNSplashScreen.h"
 //#import "RNFIRMessaging.h" FireBase
-#import <react-native-branch/RNBranch.h> // at the top
 
 @implementation AppDelegate
 
