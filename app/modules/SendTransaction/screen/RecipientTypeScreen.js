@@ -16,7 +16,6 @@ import NavStore from '../../../AppStores/NavStore'
 const marginTop = LayoutUtils.getExtraTop()
 const contentWallet = 'Send a wallet by sharing a link in text, email or other'
 const contentAddress = 'Scan or enter a wallet address to send to'
-
 const { width } = Dimensions.get('window')
 
 @observer

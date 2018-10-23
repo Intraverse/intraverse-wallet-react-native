@@ -649,7 +649,7 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   title: {
-    color: '#E5E5E5',
+    color: AppStyle.mainTextColor,
     fontSize: 18,
     fontFamily: 'OpenSans-Semibold'
   },

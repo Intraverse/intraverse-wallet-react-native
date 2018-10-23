@@ -34,7 +34,7 @@ export default class CreateWalletScreen extends Component {
     return (
       <View style={styles.container}>
         <NavigationHeader
-          style={{ marginTop: marginTop + 20 }}
+          style={{ marginTop: marginTop + 20, width }}
           headerItem={{
             title: constant.CREATE_NEW_WALLET,
             icon: null,
