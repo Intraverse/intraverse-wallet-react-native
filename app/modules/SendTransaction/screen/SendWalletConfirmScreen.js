@@ -77,24 +77,8 @@ export default class SendWalletConfirmScreen extends Component {
     this._doSend()
   }
 
-  goBack = () => {
+  _onBack = () => {
     NavStore.goBack()
-  }
-
-  renderCloseBtn() {
-    return (
-      <TouchableOpacity
-        style={styles.sendTo}
-        disabled={this.confirmStore.isProcessing}
-        onPress={this._onClose}
-      >
-        <Text
-          allowFontScaling={false}
-          style={[styles.sendText, { color: !this.confirmStore.isProcessing ? AppStyle.backgroundColor : AppStyle.greyTextInput }]}>
-          Cancel
-        </Text>
-      </TouchableOpacity>
-    )
   }
 
   renderRetryBtn() {
@@ -209,15 +193,6 @@ export default class SendWalletConfirmScreen extends Component {
     )
   }
 
-  renderClose() {
-    return (
-      !this.confirmStore.isProcessing &&
-      <View>
-        {this.renderCloseBtn()}
-      </View>
-    )
-  }
-
   render() {
     return (
       <View style={[styles.container, { backgroundColor: 'white' }]}>
@@ -228,13 +203,12 @@ export default class SendWalletConfirmScreen extends Component {
             icon: null,
             button: images.backButton
           }}
-          action={this.goBack}
+          action={this._onBack}
         />
         {this.renderProcessing()}
         {this.renderShare()}
         {this.renderRetry()}
         {this.renderTransfer()}
-        {this.renderClose()}
       </View>
     )
   }

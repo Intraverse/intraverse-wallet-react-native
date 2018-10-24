@@ -153,7 +153,7 @@ export const changelogsList = () => {
         {
           "version_number": "0.6",
           "is_release": true,
-          "change_logs": "Fixes for link send",
+          "change_logs": "Fixes for link send\r\nFix: completion of sent goes back to home",
           "created_at": "2018-10-24T18:48:43.878Z"
         },
         {

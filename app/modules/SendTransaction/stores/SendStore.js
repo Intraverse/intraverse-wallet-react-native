@@ -92,9 +92,7 @@ class SendStore {
   _onSendSuccess = (res) => {
     NavStore.hideLoading()
     HapticHandler.NotificationSuccess()
-    NavStore.navigator.dispatch(NavigationActions.back())
-    NavStore.navigator.dispatch(NavigationActions.back())
-    NavStore.navigator.dispatch(NavigationActions.back())
+    NavStore.reset()
     NavStore.showToastTop('Transaction sent and now pending', {}, { color: AppStyle.colorUp })
   }
 
