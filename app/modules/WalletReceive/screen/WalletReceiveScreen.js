@@ -116,7 +116,7 @@ export default class WalletReceiveScreen extends Component {
             <Text
               numberOfLines={3}
               adjustsFontSizeToFit
-              style={styles.attention}>{this.transferStore.amount} {this.transferStore.token} tokens</Text>
+              style={styles.attention}>{this.transferStore.amount} {this.transferStore.token}</Text>
           }
           {this.transferStore.isRefresh &&
             <View style={[styles.containerContent]}>
