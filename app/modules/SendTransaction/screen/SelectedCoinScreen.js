@@ -8,7 +8,7 @@ import { observer } from 'mobx-react/native'
 import TokenItem from '../elements/TokenItems'
 import NavigationHeader from '../../../components/elements/NavigationHeader'
 import images from '../../../commons/images'
-import Spinner from '../../../components/elements/Spinner'
+import LittleSpinner from '../../../components/elements/LittleSpinner'
 import MainStore from '../../../AppStores/MainStore'
 
 @observer
@@ -33,8 +33,7 @@ export default class SelectedCoinScreen extends Component {
   }
 
   render() {
-    const { tokens } = this.wallet
-    const loading = false
+    const { tokens, isFetchingBalance } = this.wallet
     return (
       <View style={{ flex: 1, paddingTop: 26 }}>
         <NavigationHeader
@@ -49,6 +48,11 @@ export default class SelectedCoinScreen extends Component {
               MainStore.sendTransaction.amountStore.selectedCoinModal.close()
           }}
         />
+        {isFetchingBalance &&
+          <View style={{ alignItems: 'center' }}>
+            <LittleSpinner />
+          </View>
+        }
         <FlatList
           style={{ flex: 1, marginTop: 10 }}
           data={tokens}
@@ -67,9 +71,6 @@ export default class SelectedCoinScreen extends Component {
               </View>)
           }}
         />
-        {loading &&
-          <Spinner />
-        }
       </View>
     )
   }

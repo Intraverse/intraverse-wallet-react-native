@@ -49,7 +49,7 @@ export default class Wallet {
   @observable isCold = false
   @observable canSendTransaction = true
   @observable nonce = 1
-  @observable isFetchingBalance = false
+  @observable isFetchingBalance = true
   @observable totalBalance = new BigNumber('0')
   @observable isHideValue = false
   @observable enableNotification = true
@@ -124,6 +124,7 @@ export default class Wallet {
       if (k === 'address') initObj[k] = initObj.address.toLowerCase()
 
       this[k] = initObj[k]
+      this.isFetchingBalance = true
     })
   }
 
@@ -177,20 +178,16 @@ export default class Wallet {
   }
 
   @action offLoading() {
-    this.isFetchingBalance = false
     this.isRefresh = false
     this.loading = false
   }
 
   @action async fetchingBalance(isRefresh = false, isBackground = false) {
     if (this.loading) return
-
     this.loading = true
     this.isRefresh = isRefresh
-    this.isFetchingBalance = !isRefresh && !isBackground
     try {
       const res = await api.fetchWalletInfo(this.address)
-
       const { data } = res.data
       const tokens = data.tokens ? data.tokens.map(t => new WalletToken(t, this.address)) : []
       const tokenETH = this.getTokenETH(data)
@@ -200,6 +197,7 @@ export default class Wallet {
       this.balance = new BigNumber(`${data.ETH.balance}`).times(new BigNumber('1e+18'))
       this.totalBalance = totalTokenETH
       this.update()
+      this.isFetchingBalance = false
       this.offLoading()
     } catch (e) {
       this.offLoading()
@@ -325,7 +323,7 @@ export default class Wallet {
     const {
       title, address, balance, type,
       external, didBackup, index, isCold,
-      canSendTransaction, nonce, isFetchingBalance,
+      canSendTransaction, nonce,
       totalBalance, importType, isHideValue, enableNotification
     } = this
     return {
@@ -339,7 +337,6 @@ export default class Wallet {
       isCold,
       canSendTransaction,
       nonce,
-      isFetchingBalance,
       totalBalance: totalBalance.toString(10),
       importType,
       isHideValue,

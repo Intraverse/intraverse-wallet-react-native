@@ -34,7 +34,6 @@ export default class SyncBalance extends Component {
   }
 
   render() {
-    // const loading = WalletStore.isFetchingBalance
     const rotation = this.state.spinValue.interpolate({
       inputRange: [0, 2],
       outputRange: ['0deg', '360deg'],
