@@ -134,11 +134,15 @@ class AppState {
   @action async getRateETHDollar() {
     setTimeout(async () => {
       if (this.internetConnection === 'online') {
-        const rs = await api.fetchRateETHDollar()
-        const rate = rs.data && rs.data.RAW && rs.data.RAW.ETH && rs.data.RAW.ETH.USD
+        try {
+          const rs = await api.fetchRateETHDollar()
+          const rate = rs.data && rs.data.RAW && rs.data.RAW.ETH && rs.data.RAW.ETH.USD
 
-        if (rate.PRICE != this.rateETHDollar) {
-          this.rateETHDollar = new BigNumber(rate.PRICE)
+          if (rate.PRICE != this.rateETHDollar) {
+            this.rateETHDollar = new BigNumber(rate.PRICE)
+          }
+        } catch (error) {
+          console.log(error)
         }
       }
     }, 100)
@@ -147,11 +151,15 @@ class AppState {
   @action async getCoins() {
     setTimeout(async () => {
       if (this.internetConnection === 'online') {
-        const cn = await api.fetchCoins()
-        const coins = cn.data && cn.data.coins
-        if (coins != this.coins) {
-          this.coins = coins
-          this.save()
+        try {
+          const cn = await api.fetchCoins()
+          const coins = cn.data && cn.data.coins
+          if (coins != this.coins) {
+            this.coins = coins
+            this.save()
+          }
+        } catch (error) {
+          console.log(error)
         }
       }
     }, 100)
@@ -160,16 +168,24 @@ class AppState {
   @action async getGasPriceEstimate() {
     setTimeout(async () => {
       if (this.config.network === Config.networks.mainnet && this.internetConnection === 'online') {
-        const res = await api.fetchGasPrice()
-        const data = typeof res.data === 'object'
-          ? {
-            slow: !isNaN(res.data.safeLow / 10) ? Math.floor(res.data.safeLow / 10) : 2,
-            standard: !isNaN(res.data.average / 10) ? Math.floor(res.data.average / 10) : 10,
-            fast: !isNaN(res.data.fastest / 10) ? Math.floor(res.data.fastest / 10) : 60
-          }
-          : this.gasPriceEstimate
+        try {
+          const res = await api.fetchGasPrice()
+          const data = typeof res.data === 'object'
+            ? {
+              slow: !isNaN(res.data.safeLow / 10) ? Math.floor(res.data.safeLow / 10) : 2,
+              standard: !isNaN(res.data.average / 10) ? Math.floor(res.data.average / 10) : 10,
+              fast: !isNaN(res.data.fastest / 10) ? Math.floor(res.data.fastest / 10) : 60
+            }
+            : this.gasPriceEstimate
 
-        this.gasPriceEstimate = data
+          this.gasPriceEstimate = data
+        } catch (error) {
+          this.gasPriceEstimate = {
+            slow: 2,
+            standard: 10,
+            fast: 60
+          }
+        }
       } else {
         this.gasPriceEstimate = {
           slow: 2,

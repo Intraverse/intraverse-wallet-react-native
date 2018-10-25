@@ -10,7 +10,8 @@ function requestAPI(method, url, headers = {}, dataBody, isJSON = false) {
     url,
     headers,
     method,
-    validateStatus: () => true
+    validateStatus: () => true,
+    timeout: 10000
   }
 
   if (method === METHOD_GET) {

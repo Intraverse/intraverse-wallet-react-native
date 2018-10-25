@@ -7,7 +7,7 @@ class BranchListener {
   init() {
     _unsubscribeFromBranch = branch.subscribe(({ error, params }) => {
       if (error) {
-        console.error('Error from Branch: ' + error)
+        console.log('Error from Branch: ' + error)
         return
       }
 
