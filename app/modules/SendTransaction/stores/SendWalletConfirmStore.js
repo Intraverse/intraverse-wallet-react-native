@@ -45,6 +45,7 @@ export default class SendWalletConfirmStore {
     if (this.isProcessing) return
 
     this.isProcessing = true
+    this.step = STEP_SEND
 
     try {
       res = await API.createWalletTransfer(token, amount, 'MyNewWallet')
